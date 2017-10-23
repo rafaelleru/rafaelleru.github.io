@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Orgmode on Rafaelleru</title>
+    <link>/tags/orgmode/</link>
+    <description>Recent content in Orgmode on Rafaelleru</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/tags/orgmode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mantener una lista de articulos para leer con org-mode</title>
+      <link>/blog/to_read_list_emacs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/to_read_list_emacs/</guid>
+      <description>Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
+Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado =to-read.org= y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea.</description>
+    </item>
+    
+    <item>
+      <title>Prueba de publicacion desde org-mode</title>
+      <link>/blog/first_post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/first_post/</guid>
+      <description>Al fin he encontrado unaherramienta sencilla para escribir un blog!!
+El contenido mayoritario sera sobre cosillas utiles en emacs y arch linux, pero si alguien me lee, que lo dudo y quiere algo que me escriba.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Simple minimalist theme">
+<meta name="keywords" content="minimalist,blog,goa,hugo,developer">
+
+<base href="/">
+
+<title>Rafaelleru</title>
+
+<meta name="generator" content="Hugo 0.29" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-us">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Mantener una lista de articulos para leer con org-mode</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JAN 1, 0001
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>Orgmode es le leche, no creo que pueda encontrar una frase mejor para
+empezar este post. Desde hace tiempo lo uso para mantener mi lista de
+TODOs, gestionar mi calendario, etc.</p>
+
+<p>Aparte de lo comentado anteriormente mentengo tambien una lista de
+enlaces y articulos que leer, la almaceno en un archivo llamado
+=to-read.org= y hasta hace poco para abrirlo tenía que abrir emacs,
+abrir el archivo y empezar a navegar por los enlaces, pero hace unos
+días se me ocurrió una idea. Gracias a los múltiples backend para
+exportar que tiene orgmode puedo generar un html de dicho archivo y
+visitarlo desde mi navegador, pero no era cómodo generar el html cada
+vez que añadia un enlace.</p>
+
+<p>Para automatizarlo simplemente he creado una función en mi <a href="https://github.com/rafaelleru/emacs_configuration" title="archivo de
+configuración">archivo de
+configuración</a> que detecta cuando modifico <code>to-read.org</code> y automaticamente
+crea el html, después simplemente añadimos un hook a org-mode para
+que cada vez que se guarde el archivo genere la web que queremos
+visitar desde el navegador.</p>
+
+<p>La función es la siguiente:</p>
+
+<pre><code class="language-emacs-lisp">
+     (defun org-mode-export-hook()
+       &quot;Auto export html&quot;
+       (when (eq major-mode 'org-mode)
+         (when (equal buffer-file-name &quot;/home/rafa/org/to-read.org&quot;)
+          (org-twbs-export-to-html t))))
+</code></pre>
+
+<p>Y su cometido es detectar que está en un buffer de tipo <code>org-mode</code>, y
+si el nombre del archivo que está abierto en el buffer es el índice de
+enlaces para leer exportar directamente a html dicho archivo.</p>
+
+<p>Para que el html no quede tan soso en vez de usar el comando
+=org-html-export-to-html= he instalado el paquete <code>ox-twbs</code>. Para ello
+añadimos lo siguiente a nuestro archivo de configuración (tambien
+podemos instalarlo con <code>M-x install-package RET ox-twbs RET</code>)</p>
+
+<pre><code class="language-emacs-lisp">
+  (use-package ox-twbs
+    :ensure t)
+</code></pre>
+
+<p><code>ox-twbs</code> nos exportar un html con un css dado, y lo hace mejor que el que
+integra <code>org-mode</code> por defecto.</p>
+
+<p>Por último añadimos el hook para org-mode que llame a nuestra función
+cada vez que guardemos dicho archivo.</p>
+
+<pre><code class="language-emacs-lisp">
+     (add-hook 'after-save-hook 'org-mode-export-hook)
+</code></pre>
+
+<p>Luego solo tenemos que abrir to-read.html en el navegador y si lo
+vamos a visitar mucho añadirlo como marcador.</p>
+
+<h1 id="edit">EDIT:</h1>
+
+<p>Tras ver que no funcionaba como esperaba consulte
+http://emacs.stackexchange.com/ y parece ser que para comparar no hay
+que usar <code>eq</code> sino <code>equal</code>.</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      
+      TAGS:
+      
+      
+      <a class="meta" href="/tags/emacs">EMACS,</a>, 
+      
+      <a class="meta" href="/tags/orgmode">ORGMODE</a>
+      
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  <span><a class="menu-item" href="/blog/first_post/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="/blog">blog</a></span>
+  
+  
+  <span><a class="menu-item" href="/blog/tilingwm/"> | next &gt;</a></span>
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017 Rafael Leyva Ruiz. GPL 3.0.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

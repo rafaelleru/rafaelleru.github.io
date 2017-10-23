@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2017-10-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/small-shell/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/tilingwm/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/dwm/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/i3wm/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/to_read_list_emacs/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/orgmode/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/first_post/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2017-10-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/expand-region-emacs/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/shell/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/twm/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

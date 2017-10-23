@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Simple minimalist theme">
+<meta name="keywords" content="minimalist,blog,goa,hugo,developer">
+
+<base href="/">
+
+<title>Rafaelleru</title>
+
+<meta name="generator" content="Hugo 0.29" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-us">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Small-shell con eshell</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON MAY 15, 2017
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>Hace tiempo me encontré con una idea que me encanto, poder abrir
+rapidamente una ventana en emacs que contenga un emulador de
+terminal, para hacer tareas rapidas en ella. Lo ví en el archivo de
+configuración de <a href="https://github.com/vterron/dot-emacs" title="@vterron">@vterron</a>, la función era small-shell y lucía tal que
+así:</p>
+
+<pre><code class="language-emacs-lisp">
+  (defun small-shell ()
+    (interactive)
+    (split-window-vertically)
+    (other-window 1)
+    (shrink-window (- (window-height) 12))
+  (ansi-term))
+</code></pre>
+
+<p>Pero para mis necesidades se quedaba un poco corta, así que la
+modifiqué del siguiente modo.</p>
+
+<p>En primer lugar, cambiamos <code>ansi-term</code> por <code>eshell</code> que para mi gusto es
+más completo y funciona mejor, con lo que la función quedaría así:</p>
+
+<pre><code class="language-emacs-lisp">
+  (defun small-shell ()
+    (interactive)
+    (split-window-vertically)
+    (other-window 1)
+    (shrink-window (- (window-height) 12))
+    (eshell))
+</code></pre>
+
+<p>Pero la principal pega que tenía el original era que cada vez que
+invocamos a small-shell se crea una nueva instancia de <code>ansi-term</code> o
+=eshell= y yo quería que <code>C-x k</code> saliese del buffer y eliminara la
+ventana, con lo que añadimos el siguiente hook:</p>
+
+<pre><code class="language-emacs-lisp">
+  (add-hook 'eshell-exit-hook 'delete-window)
+</code></pre>
+
+<p>Por último creamos un atajo de teclado personalizado que invoque a
+small-shell y listo tenemos en todo momento un terminal listo con el
+cual desde dentro de nuestro editor podemos por ejemplo desplegar este
+artículo.</p>
+
+<pre><code class="language-emacs-lisp">
+  (global-set-key (kbd &quot;C-ñ&quot;) 'small-shell)
+</code></pre>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      
+      TAGS:
+      
+      
+      <a class="meta" href="/tags/emacs">EMACS,</a>, 
+      
+      <a class="meta" href="/tags/shell">SHELL</a>
+      
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  <span><a class="menu-item" href="/blog/tilingwm/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="/blog">blog</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017 Rafael Leyva Ruiz. GPL 3.0.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
