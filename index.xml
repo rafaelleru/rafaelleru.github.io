@@ -44,6 +44,20 @@ En primer lugar, la funcionalidad como se entiende en un entorno de escritorio c
     </item>
     
     <item>
+      <title>Configuracion de emacs.</title>
+      <link>/emacs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/emacs/</guid>
+      <description>Credits to Harry R. Schwartz, @hrs, Zamansky.
+Informacion personal (setq user-full-name &amp;quot;Rafael Leyva Ruiz&amp;quot; user-mail-address &amp;quot;rafaelleru95103@gmail.com&amp;quot; calendar-latitude 42.2 calendar-longitude -71.1 calendar-location-name &amp;quot;Madrid, ES&amp;quot;)  Madrid, ES  Gestion de paquetes melpa y cask #+BEGIN_SRC emacs-lisp (require &#39;cask &#34;~/.cask/cask.el&#34;) (cask-initialize) (require &#39;pallet) #+END_SRC
+#+RESULTS:
+pallet  Use package #+BEGIN_SRC emacs-lisp (unless (package-installed-p &#39;use-package) (package-refresh-contents) (package-install &#39;use-package)) #+END_SRC
+#+RESULTS:
+Ajustes de la interfaz Ocultar botones que no uso y la barra de scroll.</description>
+    </item>
+    
+    <item>
       <title>Mantener una lista de articulos para leer con org-mode</title>
       <link>/blog/to_read_list_emacs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
