@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Simple minimalist theme">
+<meta name="keywords" content="minimalist,blog,goa,hugo,developer">
+
+<base href="/">
+
+<title>Rafaelleru</title>
+
+<meta name="generator" content="Hugo 0.29" />
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-us">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Programando C&#43;&#43; en emacs.</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON JAN 1, 0001
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    <p>Hace unos días prepare una pequeña introducción para comentar las
+herramientas necesarias para progamar C++ en emacs con todas las
+ventajas de un IDE pero con la comodidad de mi editor favorito. Para
+ello me centre en unas funcionalidades básicas que son las siguientes:</p>
+
+<ul>
+<li>Coloreado de la sintaxis.</li>
+<li>Syntax higlight</li>
+<li>autocompletado con company</li>
+</ul>
+
+<p>Todo esto pensando en programar proyectos medianamente grandes de C++
+ya que si solo vamos a editar un par de archivos con solo instalar
+estos paquetes emacs hará una gestión mas que decente.</p>
+
+<h1 id="coloreado-de-la-sintaxis-para-c-14">Coloreado de la sintaxis para C++14</h1>
+
+<p>En primer lugar y aunque el mayor mode de emacs para C++ viene
+  instalado por defecto este no soporta las últimas versiones de
+  C++. Melpa viene al rescate para esto con el paquete
+  <code>modern-cpp-font-lock</code> y para utilizarlo añadimos a nuestro archivo
+  de configuración la siguiente línea:</p>
+
+<pre><code class="language-emacs-lisp">
+    (modern-c++-font-lock-global-mode t)
+</code></pre>
+
+<h1 id="instalar-irony-mode">Instalar Irony-mode.</h1>
+
+<p>Irony-mode es un <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html" title="minor mode">minor mode</a> para emacs, que potencia el modo de
+    C++ con la ayuda de compilador clang. Para instalarlo <code>M-x
+    package-install irony</code>.</p>
+
+<p>Despues tenemos que configurar unas cuantas cosas, en primer lugar
+    añadimos un hook al modo mayor de C++ para que cada vez que
+    editemos un archivo con el modo C++ automaticamente se active
+    Irony-mode.</p>
+
+<pre><code>
+      (add-hook 'c++-mode-hook 'irony-mode)
+      (add-hook 'c-mode-hook 'irony-mode)
+      (add-hook 'objc-mode-hook 'irony-mode)
+</code></pre>
+
+<p>Despues añadimos un hook para irony de modo que cuando inicie
+    cambiaremos un par de cosas, en primer lugar cambiamos el
+    autocompletado (completion-at-point) de emacs por <a href="counsel-irony" title="link al post de
+    abo-abo">link al post de
+    abo-abo</a> que permite hacer una busqueda usando counsel.</p>
+
+<pre><code>
+      (defun my-irony-mode-hook ()
+	     (define-key irony-mode-map [remap completion-at-point]
+	       'counsel-irony)
+	     (define-key irony-mode-map [remap complete-symbol]
+	       'counsel-irony)
+	     ;; ;; (define-key irony-mode-map [remap comment-region]
+	     ;; ;;   'compile)
+	     (eval-after-load 'company
+	       '(add-to-list 'company-backends '(company-irony-c-headers company-irony))))
+</code></pre>
+
+<p>Ademas añadimos a la lista de backends de company <code>company-irony=
+    y =company-irony-c-headers</code>.</p>
+
+<p>Por último añadimos el</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2017 Rafael Leyva Ruiz. GPL 3.0.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+
+<script type="text/javascript">
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
