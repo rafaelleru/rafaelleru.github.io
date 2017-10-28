@@ -6,7 +6,7 @@
     <description>Recent content in Shell on Rafaelleru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 May 2017 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Small-shell con eshell</title>
       <link>/blog/small-shell/</link>
-      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0200</pubDate>
       
       <guid>/blog/small-shell/</guid>
       <description>Hace tiempo me encontré con una idea que me encanto, poder abrir rapidamente una ventana en emacs que contenga un emulador de terminal, para hacer tareas rapidas en ella. Lo ví en el archivo de configuración de @vterron, la función era small-shell y lucía tal que así:

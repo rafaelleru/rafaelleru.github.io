@@ -57,21 +57,22 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-justify content">
-    <p>Orgmode es le leche, no creo que pueda encontrar una frase mejor para
+    
+
+<p>Orgmode es le leche, no creo que pueda encontrar una frase mejor para
 empezar este post. Desde hace tiempo lo uso para mantener mi lista de
 TODOs, gestionar mi calendario, etc.</p>
 
 <p>Aparte de lo comentado anteriormente mentengo tambien una lista de
 enlaces y articulos que leer, la almaceno en un archivo llamado
-=to-read.org= y hasta hace poco para abrirlo tenía que abrir emacs,
+<code>to-read.org</code> y hasta hace poco para abrirlo tenía que abrir emacs,
 abrir el archivo y empezar a navegar por los enlaces, pero hace unos
 días se me ocurrió una idea. Gracias a los múltiples backend para
 exportar que tiene orgmode puedo generar un html de dicho archivo y
 visitarlo desde mi navegador, pero no era cómodo generar el html cada
 vez que añadia un enlace.</p>
 
-<p>Para automatizarlo simplemente he creado una función en mi <a href="https://github.com/rafaelleru/emacs_configuration" title="archivo de
-configuración">archivo de
+<p>Para automatizarlo simplemente he creado una función en mi <a href="https://github.com/rafaelleru/emacs_configuration">archivo de
 configuración</a> que detecta cuando modifico <code>to-read.org</code> y automaticamente
 crea el html, después simplemente añadimos un hook a org-mode para
 que cada vez que se guarde el archivo genere la web que queremos
@@ -79,12 +80,11 @@ visitar desde el navegador.</p>
 
 <p>La función es la siguiente:</p>
 
-<pre><code class="language-emacs-lisp">
-     (defun org-mode-export-hook()
-       &quot;Auto export html&quot;
-       (when (eq major-mode 'org-mode)
-         (when (equal buffer-file-name &quot;/home/rafa/org/to-read.org&quot;)
-          (org-twbs-export-to-html t))))
+<pre><code class="language-emacs-lisp">(defun org-mode-export-hook()
+  &quot;Auto export html&quot;
+  (when (eq major-mode 'org-mode)
+    (when (equal buffer-file-name &quot;/home/rafa/org/to-read.org&quot;)
+     (org-twbs-export-to-html t))))
 </code></pre>
 
 <p>Y su cometido es detectar que está en un buffer de tipo <code>org-mode</code>, y
@@ -92,13 +92,12 @@ si el nombre del archivo que está abierto en el buffer es el índice de
 enlaces para leer exportar directamente a html dicho archivo.</p>
 
 <p>Para que el html no quede tan soso en vez de usar el comando
-=org-html-export-to-html= he instalado el paquete <code>ox-twbs</code>. Para ello
+<code>org-html-export-to-html</code> he instalado el paquete <code>ox-twbs</code>. Para ello
 añadimos lo siguiente a nuestro archivo de configuración (tambien
 podemos instalarlo con <code>M-x install-package RET ox-twbs RET</code>)</p>
 
-<pre><code class="language-emacs-lisp">
-  (use-package ox-twbs
-    :ensure t)
+<pre><code class="language-emacs-lisp">(use-package ox-twbs
+  :ensure t)
 </code></pre>
 
 <p><code>ox-twbs</code> nos exportar un html con un css dado, y lo hace mejor que el que
@@ -107,17 +106,16 @@ integra <code>org-mode</code> por defecto.</p>
 <p>Por último añadimos el hook para org-mode que llame a nuestra función
 cada vez que guardemos dicho archivo.</p>
 
-<pre><code class="language-emacs-lisp">
-     (add-hook 'after-save-hook 'org-mode-export-hook)
+<pre><code class="language-emacs-lisp">(add-hook 'after-save-hook 'org-mode-export-hook)
 </code></pre>
 
 <p>Luego solo tenemos que abrir to-read.html en el navegador y si lo
 vamos a visitar mucho añadirlo como marcador.</p>
 
-<h1 id="edit">EDIT:</h1>
+<h2 id="edit">EDIT:</h2>
 
 <p>Tras ver que no funcionaba como esperaba consulte
-http://emacs.stackexchange.com/ y parece ser que para comparar no hay
+<a href="http://emacs.stackexchange.com/">http://emacs.stackexchange.com/</a> y parece ser que para comparar no hay
 que usar <code>eq</code> sino <code>equal</code>.</p>
 
   </div>
@@ -153,7 +151,7 @@ que usar <code>eq</code> sino <code>equal</code>.</p>
 <section id="menu-pane" class="row menu text-center">
   
   
-  <span><a class="menu-item" href="/blog/first_post/">&lt; prev | </a></span>
+  <span><a class="menu-item" href="/blog/expand-region-emacs/">&lt; prev | </a></span>
   
   
   <span><a class="menu-item" href="/blog">blog</a></span>

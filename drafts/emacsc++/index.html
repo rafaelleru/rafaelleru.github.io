@@ -77,8 +77,9 @@ estos paquetes emacs hará una gestión mas que decente.</p>
 <p>En primer lugar y aunque el mayor mode de emacs para C++ viene
   instalado por defecto este no soporta las últimas versiones de
   C++. Melpa viene al rescate para esto con el paquete
-  <code>modern-cpp-font-lock</code> y para utilizarlo añadimos a nuestro archivo
-  de configuración la siguiente línea:</p>
+  <code>modern-cpp-font-lock</code> (<code>M-x package-install RET
+  modern-cpp-font-lock RET</code>) y para utilizarlo añadimos a nuestro
+  archivo de configuración la siguiente línea:</p>
 
 <pre><code class="language-emacs-lisp">
     (modern-c++-font-lock-global-mode t)
@@ -107,22 +108,36 @@ estos paquetes emacs hará una gestión mas que decente.</p>
     abo-abo">link al post de
     abo-abo</a> que permite hacer una busqueda usando counsel.</p>
 
-<pre><code>
-      (defun my-irony-mode-hook ()
-	     (define-key irony-mode-map [remap completion-at-point]
-	       'counsel-irony)
-	     (define-key irony-mode-map [remap complete-symbol]
-	       'counsel-irony)
-	     ;; ;; (define-key irony-mode-map [remap comment-region]
-	     ;; ;;   'compile)
-	     (eval-after-load 'company
-	       '(add-to-list 'company-backends '(company-irony-c-headers company-irony))))
+<pre><code class="language-emacs-lisp">
+    (defun my-irony-mode-hook ()
+	   (define-key irony-mode-map [remap completion-at-point]
+	     'counsel-irony)
+	   (define-key irony-mode-map [remap complete-symbol]
+	     'counsel-irony)
+	   (eval-after-load 'company
+	     '(add-to-list 'company-backends '(company-irony-c-headers company-irony))))
 </code></pre>
 
 <p>Ademas añadimos a la lista de backends de company <code>company-irony=
     y =company-irony-c-headers</code>.</p>
 
-<p>Por último añadimos el</p>
+<p>Por último añadimos el hook a irony mode:</p>
+
+<pre><code class="language-emacs-lisp">
+    (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+</code></pre>
+
+<p>Para usar irony-mode es necesario instalar el servidor de irony
+    con <code>M-x irony-install-server</code> el cual analizará nuestro código,
+    para que irony sea capaz de proveer autocompletado, "parseo" de la
+    sintaxis, etc y ademas hay que generar una base de datos por
+    proyecto, de nuevo los hooks son muy utiles para esto ya que
+    podemos automatizar todo el proceso mediante las siguientes
+    ordenes:</p>
+
+<pre><code class="language-emacs-lisp">
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+</code></pre>
 
   </div>
 </section>

@@ -6,7 +6,7 @@
     <description>Recent content in Dwm on Rafaelleru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 May 2017 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="/tags/dwm/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Por qué todo el mundo debería probar un twm</title>
       <link>/blog/tilingwm/</link>
-      <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 12 May 2017 00:00:00 +0200</pubDate>
       
       <guid>/blog/tilingwm/</guid>
       <description>Varias veces me habían propuesto usar alguno de los varios window manager que hay disponibles para linux. Tengo que decir que al principio no le veía sentido, ¿Por que usar algo que en apariencia es mucho mas feo que un entorno de escritorio clásico y que ademas tienes mucha menos funcionalidad por defecto?

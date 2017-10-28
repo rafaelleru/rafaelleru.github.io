@@ -57,7 +57,7 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-justify content">
-    <p>El otro día viendo la serie de videos de <a href="http://cestlaz.github.io" title="Myke Zamansky">Myke Zamansky</a> sobre emacs,
+    <p>El otro día viendo la serie de videos de <a href="http://cestlaz.github.io">Myke Zamansky</a> sobre emacs,
 habló sobre un paquete de emacs llamado expand-region. El
 funcionamiento es muy sencillo nos permite seleccionar con una sola
 pulsación en el atajo que definamos el texto entre dos delimitadores,
@@ -67,11 +67,10 @@ ya sean parentesis, comillas, etc.</p>
 escribiendo <code>package-install RET expand-region RET</code> donde RET es la
 tecla enter.</p>
 
-<p>Despues añadimos a nuestro <span style="text-decoration: underline;">init.el</span> lo siguiente:</p>
+<p>Despues añadimos a nuestro <span class="underline">init.el</span> lo siguiente:</p>
 
-<pre><code class="language-emacs-lisp">
-     (require 'expand-region)
-     (global-set-key (kbd &quot;C-=&quot;) 'er/expand-region)
+<pre><code class="language-emacs-lisp">(require 'expand-region)
+(global-set-key (kbd &quot;C-=&quot;) 'er/expand-region)
 </code></pre>
 
 <p>En mi caso comence usando <code>C-ç</code> pero me resultaba extraño y lo cambie por <code>C-=</code>.</p>
@@ -111,7 +110,7 @@ tecla enter.</p>
   <span><a class="menu-item" href="/blog">blog</a></span>
   
   
-  <span><a class="menu-item" href="/blog/first_post/"> | next &gt;</a></span>
+  <span><a class="menu-item" href="/blog/to_read_list_emacs/"> | next &gt;</a></span>
   
   
   <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
