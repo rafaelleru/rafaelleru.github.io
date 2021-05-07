@@ -3,84 +3,84 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://rafaelleru.github.io/blog/</loc>
+    <loc>./blog/</loc>
     <lastmod>2021-05-07T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/json/</loc>
+    <loc>./tags/json/</loc>
     <lastmod>2021-05-07T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/blog/json-magic-vim/</loc>
+    <loc>./blog/json-magic-vim/</loc>
     <lastmod>2021-05-07T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/</loc>
+    <loc>./</loc>
     <lastmod>2021-05-07T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/</loc>
+    <loc>./tags/</loc>
     <lastmod>2021-05-07T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/vim/</loc>
+    <loc>./tags/vim/</loc>
     <lastmod>2021-05-07T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/emacs/</loc>
+    <loc>./tags/emacs/</loc>
     <lastmod>2017-05-15T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/shell/</loc>
+    <loc>./tags/shell/</loc>
     <lastmod>2017-05-15T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/blog/small-shell/</loc>
+    <loc>./blog/small-shell/</loc>
     <lastmod>2017-05-15T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/dwm/</loc>
+    <loc>./tags/dwm/</loc>
     <lastmod>2017-05-12T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/i3wm/</loc>
+    <loc>./tags/i3wm/</loc>
     <lastmod>2017-05-12T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/blog/tilingwm/</loc>
+    <loc>./blog/tilingwm/</loc>
     <lastmod>2017-05-12T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/twm/</loc>
+    <loc>./tags/twm/</loc>
     <lastmod>2017-05-12T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/emacs/</loc>
+    <loc>./emacs/</loc>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/blog/to_read_list_emacs/</loc>
+    <loc>./blog/to_read_list_emacs/</loc>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/tags/orgmode/</loc>
+    <loc>./tags/orgmode/</loc>
   </url>
   
   <url>
-    <loc>http://rafaelleru.github.io/blog/expand-region-emacs/</loc>
+    <loc>./blog/expand-region-emacs/</loc>
   </url>
   
 </urlset>

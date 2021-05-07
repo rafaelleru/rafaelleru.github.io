@@ -2,69 +2,69 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rafael Leyva Ruiz</title>
-    <link>http://rafaelleru.github.io/</link>
+    <link>./</link>
     <description>Recent content on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 May 2021 00:00:00 +0200</lastBuildDate>
     
-	<atom:link href="http://rafaelleru.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="./index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JSON magic with VIM</title>
-      <link>http://rafaelleru.github.io/blog/json-magic-vim/</link>
+      <link>./blog/json-magic-vim/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/blog/json-magic-vim/</guid>
+      <guid>./blog/json-magic-vim/</guid>
       <description>How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a web called JSON formatter and validator (There are hundreds of webs with the same objective around in the web) and then comparing it to his also prettified version using JSON diff.</description>
     </item>
     
     <item>
       <title>Small-shell con eshell</title>
-      <link>http://rafaelleru.github.io/blog/small-shell/</link>
+      <link>./blog/small-shell/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/blog/small-shell/</guid>
+      <guid>./blog/small-shell/</guid>
       <description>Hace tiempo me encontré con una idea que me encanto, poder abrir rapidamente una ventana en emacs que contenga un emulador de terminal, para hacer tareas rapidas en ella. Lo ví en el archivo de configuración de @vterron, la función era small-shell y lucía tal que así:
 (defun small-shell () (interactive) (split-window-vertically) (other-window 1) (shrink-window (- (window-height) 12)) (ansi-term)) Pero para mis necesidades se quedaba un poco corta, así que la modifiqué del siguiente modo.</description>
     </item>
     
     <item>
       <title>Por qué todo el mundo debería probar un twm</title>
-      <link>http://rafaelleru.github.io/blog/tilingwm/</link>
+      <link>./blog/tilingwm/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/blog/tilingwm/</guid>
+      <guid>./blog/tilingwm/</guid>
       <description>Varias veces me habían propuesto usar alguno de los varios window manager que hay disponibles para linux. Tengo que decir que al principio no le veía sentido, ¿Por que usar algo que en apariencia es mucho mas feo que un entorno de escritorio clásico y que ademas tienes mucha menos funcionalidad por defecto?
 En primer lugar, la funcionalidad como se entiende en un entorno de escritorio clásico como gnome o KDE no es aplicable a los twm.</description>
     </item>
     
     <item>
       <title>Configuracion de emacs.</title>
-      <link>http://rafaelleru.github.io/emacs/</link>
+      <link>./emacs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://rafaelleru.github.io/emacs/</guid>
+      <guid>./emacs/</guid>
       <description>Credits to Harry R. Schwartz, @hrs, Zamansky. Informacion personal  (setq user-full-name &amp;#34;Rafael Leyva Ruiz&amp;#34; user-mail-address &amp;#34;rafaelleru95103@gmail.com&amp;#34; calendar-latitude 42.2 calendar-longitude -71.1 calendar-location-name &amp;#34;Madrid, ES&amp;#34;)  Madrid, ES  Gestion de paquetes melpa y cask  (require &amp;#39;cask &amp;#34;~/.cask/cask.el&amp;#34;) (cask-initialize) (require &amp;#39;pallet)  pallet  Use package  (unless (package-installed-p &amp;#39;use-package) (package-refresh-contents) (package-install &amp;#39;use-package))  Ajustes de la interfaz  Ocultar botones que no uso y la barra de scroll.</description>
     </item>
     
     <item>
       <title>Mantener una lista de articulos para leer con org-mode</title>
-      <link>http://rafaelleru.github.io/blog/to_read_list_emacs/</link>
+      <link>./blog/to_read_list_emacs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://rafaelleru.github.io/blog/to_read_list_emacs/</guid>
+      <guid>./blog/to_read_list_emacs/</guid>
       <description>Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
 Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea.</description>
     </item>
     
     <item>
       <title>Seleccionando de una manera mas inteligente en emacs</title>
-      <link>http://rafaelleru.github.io/blog/expand-region-emacs/</link>
+      <link>./blog/expand-region-emacs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://rafaelleru.github.io/blog/expand-region-emacs/</guid>
+      <guid>./blog/expand-region-emacs/</guid>
       <description>El otro día viendo la serie de videos de Myke Zamansky sobre emacs, habló sobre un paquete de emacs llamado expand-region. El funcionamiento es muy sencillo nos permite seleccionar con una sola pulsación en el atajo que definamos el texto entre dos delimitadores, ya sean parentesis, comillas, etc.
 Para usarlo lo primero es instalarlo, ejecutando en emacs M-x y escribiendo package-install RET expand-region RET donde RET es la tecla enter.</description>
     </item>

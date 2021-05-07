@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Rafael Leyva Ruiz</title>
-    <link>http://rafaelleru.github.io/tags/</link>
+    <link>./tags/</link>
     <description>Recent content in Tags on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 May 2021 00:00:00 +0200</lastBuildDate>
     
-	<atom:link href="http://rafaelleru.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="./tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>json</title>
-      <link>http://rafaelleru.github.io/tags/json/</link>
+      <link>./tags/json/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/json/</guid>
+      <guid>./tags/json/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vim</title>
-      <link>http://rafaelleru.github.io/tags/vim/</link>
+      <link>./tags/vim/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/vim/</guid>
+      <guid>./tags/vim/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emacs</title>
-      <link>http://rafaelleru.github.io/tags/emacs/</link>
+      <link>./tags/emacs/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/emacs/</guid>
+      <guid>./tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell</title>
-      <link>http://rafaelleru.github.io/tags/shell/</link>
+      <link>./tags/shell/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/shell/</guid>
+      <guid>./tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dwm,</title>
-      <link>http://rafaelleru.github.io/tags/dwm/</link>
+      <link>./tags/dwm/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/dwm/</guid>
+      <guid>./tags/dwm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>i3wm,</title>
-      <link>http://rafaelleru.github.io/tags/i3wm/</link>
+      <link>./tags/i3wm/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/i3wm/</guid>
+      <guid>./tags/i3wm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>twm</title>
-      <link>http://rafaelleru.github.io/tags/twm/</link>
+      <link>./tags/twm/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/twm/</guid>
+      <guid>./tags/twm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>orgmode</title>
-      <link>http://rafaelleru.github.io/tags/orgmode/</link>
+      <link>./tags/orgmode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://rafaelleru.github.io/tags/orgmode/</guid>
+      <guid>./tags/orgmode/</guid>
       <description></description>
     </item>
     
