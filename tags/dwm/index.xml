@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dwm, on Rafael Leyva Ruiz</title>
-    <link>./tags/dwm/</link>
+    <link>https://rafaelleru.github.io/tags/dwm/</link>
     <description>Recent content in dwm, on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 12 May 2017 00:00:00 +0200</lastBuildDate>
     
-	<atom:link href="./tags/dwm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rafaelleru.github.io/tags/dwm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Por qué todo el mundo debería probar un twm</title>
-      <link>./blog/tilingwm/</link>
+      <link>https://rafaelleru.github.io/blog/tilingwm/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>./blog/tilingwm/</guid>
+      <guid>https://rafaelleru.github.io/blog/tilingwm/</guid>
       <description>Varias veces me habían propuesto usar alguno de los varios window manager que hay disponibles para linux. Tengo que decir que al principio no le veía sentido, ¿Por que usar algo que en apariencia es mucho mas feo que un entorno de escritorio clásico y que ademas tienes mucha menos funcionalidad por defecto?
 En primer lugar, la funcionalidad como se entiende en un entorno de escritorio clásico como gnome o KDE no es aplicable a los twm.</description>
     </item>
