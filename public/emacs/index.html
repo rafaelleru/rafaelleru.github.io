@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Configuracion de emacs. - Rafael Leyva Ruiz</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Configuracion de emacs." />
+<meta property="og:description" content="Credits to Harry R. Schwartz, @hrs, Zamansky. Informacion personal  (setq user-full-name &#34;Rafael Leyva Ruiz&#34; user-mail-address &#34;rafaelleru95103@gmail.com&#34; calendar-latitude 42.2 calendar-longitude -71.1 calendar-location-name &#34;Madrid, ES&#34;)  Madrid, ES  Gestion de paquetes melpa y cask  (require &#39;cask &#34;~/.cask/cask.el&#34;) (cask-initialize) (require &#39;pallet)  pallet  Use package  (unless (package-installed-p &#39;use-package) (package-refresh-contents) (package-install &#39;use-package))  Ajustes de la interfaz  Ocultar botones que no uso y la barra de scroll." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://rafaelleru.github.io/emacs/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configuracion de emacs."/>
+<meta name="twitter:description" content="Credits to Harry R. Schwartz, @hrs, Zamansky. Informacion personal  (setq user-full-name &#34;Rafael Leyva Ruiz&#34; user-mail-address &#34;rafaelleru95103@gmail.com&#34; calendar-latitude 42.2 calendar-longitude -71.1 calendar-location-name &#34;Madrid, ES&#34;)  Madrid, ES  Gestion de paquetes melpa y cask  (require &#39;cask &#34;~/.cask/cask.el&#34;) (cask-initialize) (require &#39;pallet)  pallet  Use package  (unless (package-installed-p &#39;use-package) (package-refresh-contents) (package-install &#39;use-package))  Ajustes de la interfaz  Ocultar botones que no uso y la barra de scroll."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="http://rafaelleru.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://rafaelleru.github.io/css/main.css" />
+
+	<script src="http://rafaelleru.github.io/js/feather.min.js"></script>
+	
+	<script src="http://rafaelleru.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="http://rafaelleru.github.io/">
+	<h1 class="site-title"><a href="http://rafaelleru.github.io/">Rafael Leyva Ruiz</a></h1>
+	<div class="site-description"><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/rafaelleru" title="Github"><i data-feather="github"></i></a><a href="https://www.linkedin.com/in/rafa-leyva-738228140/" title="Linkedin"><i data-feather="linkedin"></i></a><a href="https://www.linkedin.com/in/rafa-leyva-738228140/" title="Stack Overflow"><i data-feather="StackOverflow"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Configuracion de emacs.</h1>
+			<div class="meta">Posted at &mdash; Jan 1, 0001</div>
+		</div>
+
+		<div class="markdown">
+			
+<p>
+Credits to Harry R. Schwartz, <a href="https://github.com/hrs/dotfiles/blob/master/emacs.d/configuration.org">@hrs</a>,  <a href="https://github.com/zamansky/using-emacs/blob/master/myinit.org">Zamansky</a>.
+</p>
+<h2 id="headline-1">
+Informacion personal
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">user-full-name</span> <span style="color:#2aa198">&#34;Rafael Leyva Ruiz&#34;</span>
+        <span style="color:#268bd2">user-mail-address</span> <span style="color:#2aa198">&#34;rafaelleru95103@gmail.com&#34;</span>
+        <span style="color:#268bd2">calendar-latitude</span> <span style="color:#2aa198">42.2</span>
+        <span style="color:#268bd2">calendar-longitude</span> <span style="color:#2aa198">-71.1</span>
+        <span style="color:#268bd2">calendar-location-name</span> <span style="color:#2aa198">&#34;Madrid, ES&#34;</span>)</code></pre></div>
+</div>
+<pre class="example">
+Madrid, ES
+</pre>
+<h2 id="headline-2">
+Gestion de paquetes <code class="verbatim">melpa y cask</code>
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;cask</span> <span style="color:#2aa198">&#34;~/.cask/cask.el&#34;</span>)
+  (<span style="color:#268bd2">cask-initialize</span>)
+  (<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;pallet</span>)</code></pre></div>
+</div>
+<pre class="example">
+pallet
+</pre>
+<h3 id="headline-3">
+Use package 
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">unless</span> (<span style="color:#268bd2">package-installed-p</span> <span style="color:#2aa198">&#39;use-package</span>)
+    (<span style="color:#268bd2">package-refresh-contents</span>)
+    (<span style="color:#268bd2">package-install</span> <span style="color:#2aa198">&#39;use-package</span>))</code></pre></div>
+</div>
+<h2 id="headline-4">
+Ajustes de la interfaz
+</h2>
+<h3 id="headline-5">
+Ocultar botones que no uso y la barra de scroll.
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">tool-bar-mode</span> <span style="color:#2aa198">-1</span>)
+  (<span style="color:#268bd2">menu-bar-mode</span> <span style="color:#2aa198">1</span>)
+  (<span style="color:#268bd2">scroll-bar-mode</span> <span style="color:#2aa198">-1</span>)</code></pre></div>
+</div>
+<h3 id="headline-6">
+tema personalizado
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">gotham-theme</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">solarized-theme</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">danneskjold-theme</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">atom-one-dark-theme</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">load-my-theme</span> ()
+<span style="color:#586e75">;;;&#34;&#34;&#34;Carga mi tema solarized&#34;&#34;&#34;</span>
+(<span style="color:#b58900">interactive</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">solarized-use-variable-pitch</span> <span style="color:#cb4b16">nil</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">solarized-height-plus-1</span> <span style="color:#2aa198">1.0</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">solarized-height-plus-2</span> <span style="color:#2aa198">1.0</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">solarized-height-plus-3</span> <span style="color:#2aa198">1.0</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">solarized-height-plus-4</span> <span style="color:#2aa198">1.0</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">solarized-high-contrast-mode-line</span> <span style="color:#cb4b16">t</span>)
+(<span style="color:#268bd2">load-theme</span> <span style="color:#2aa198">&#39;solarized-dark</span> <span style="color:#cb4b16">t</span>)
+  )
+
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;after-init-hook</span> <span style="color:#2aa198">&#39;load-my-theme</span>)
+  (<span style="color:#b58900">when</span> <span style="color:#268bd2">window-system</span>
+    (<span style="color:#b58900">lambda</span>) (<span style="color:#268bd2">load-my-theme</span>))
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">load-my-white-theme</span> ()
+    (<span style="color:#b58900">interactive</span>)
+    (<span style="color:#268bd2">load-theme</span> <span style="color:#2aa198">&#39;solarized-light</span> <span style="color:#cb4b16">t</span>)
+    )</code></pre></div>
+</div>
+<pre class="example">
+load-my-white-theme
+</pre>
+<h3 id="headline-7">
+Fuente Inconsolata
+</h3>
+<p>
+Permite ademas cambiar el tamaño de la ventana y la fuente para presentaciones por ejemplo.
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/default-font</span> <span style="color:#2aa198">&#34;Inconsolata&#34;</span>)
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/default-font-size</span> <span style="color:#2aa198">13</span>)
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/current-font-size</span> <span style="color:#268bd2">hrs/default-font-size</span>)
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">set-font</span> () 
+(<span style="color:#b58900">interactive</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/default-font</span> <span style="color:#2aa198">&#34;Source Code Pro&#34;</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/default-font-size</span> <span style="color:#2aa198">12</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/current-font-size</span> <span style="color:#268bd2">hrs/default-font-size</span>))
+
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/font-change-increment</span> <span style="color:#2aa198">1.1</span>)
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">hrs/set-font-size</span> ()
+<span style="color:#2aa198">&#34;Set the font to </span><span style="color:#2aa198">`hrs/default-font&#39;</span><span style="color:#2aa198"> at </span><span style="color:#2aa198">`hrs/current-font-size&#39;</span><span style="color:#2aa198">.&#34;</span>
+(<span style="color:#268bd2">set-frame-font</span>
+(<span style="color:#268bd2">concat</span> <span style="color:#268bd2">hrs/default-font</span> <span style="color:#2aa198">&#34;-&#34;</span> (<span style="color:#268bd2">number-to-string</span> <span style="color:#268bd2">hrs/current-font-size</span>))))
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">hrs/reset-font-size</span> ()
+<span style="color:#2aa198">&#34;Change font size back to </span><span style="color:#2aa198">`hrs/default-font-size&#39;</span><span style="color:#2aa198">.&#34;</span>
+(<span style="color:#b58900">interactive</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/current-font-size</span> <span style="color:#268bd2">hrs/default-font-size</span>)
+(<span style="color:#268bd2">hrs/set-font-size</span>))
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">hrs/increase-font-size</span> ()
+<span style="color:#2aa198">&#34;Increase current font size by a factor of </span><span style="color:#2aa198">`hrs/font-change-increment&#39;</span><span style="color:#2aa198">.&#34;</span>
+(<span style="color:#b58900">interactive</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/current-font-size</span>
+   (<span style="color:#268bd2">ceiling</span> (<span style="color:#268bd2">*</span> <span style="color:#268bd2">hrs/current-font-size</span> <span style="color:#268bd2">hrs/font-change-increment</span>)))
+(<span style="color:#268bd2">hrs/set-font-size</span>))
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">hrs/decrease-font-size</span> ()
+<span style="color:#2aa198">&#34;Decrease current font size by a factor of </span><span style="color:#2aa198">`hrs/font-change-increment&#39;</span><span style="color:#2aa198">, down to a minimum size of 1.&#34;</span>
+(<span style="color:#b58900">interactive</span>)
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">hrs/current-font-size</span>
+   (<span style="color:#268bd2">max</span> <span style="color:#2aa198">1</span>
+ (<span style="color:#268bd2">floor</span> (<span style="color:#268bd2">/</span> <span style="color:#268bd2">hrs/current-font-size</span> <span style="color:#268bd2">hrs/font-change-increment</span>))))
+(<span style="color:#268bd2">hrs/set-font-size</span>))
+
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">global-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-)&#34;</span>) <span style="color:#2aa198">&#39;hrs/reset-font-size</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">global-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-+&#34;</span>) <span style="color:#2aa198">&#39;hrs/increase-font-size</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">global-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-_&#34;</span>) <span style="color:#2aa198">&#39;hrs/decrease-font-size</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">global-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C--&#34;</span>) <span style="color:#2aa198">&#39;hrs/decrease-font-size</span>)
+  (<span style="color:#268bd2">hrs/set-font-size</span>)</code></pre></div>
+</div>
+<h3 id="headline-8">
+Resaltar linea de edicion
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;after-init-hook</span> <span style="color:#2aa198">&#39;global-hl-line-mode</span>)</code></pre></div>
+</div>
+<h3 id="headline-9">
+Ver coincidencia de parentesis
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">show-paren-mode</span> <span style="color:#2aa198">1</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-10">
+Tamaño al abrir una nueva ventana de emacs
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">when</span> <span style="color:#268bd2">window-system</span> (<span style="color:#268bd2">set-frame-size</span> (<span style="color:#268bd2">selected-frame</span>) <span style="color:#2aa198">130</span> <span style="color:#2aa198">45</span>))</code></pre></div>
+</div>
+<h3 id="headline-11">
+No mover el cursor al hacer scroll con el raton
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">scroll-down-keep-cursor</span> ()
+(<span style="color:#b58900">interactive</span>)
+(<span style="color:#268bd2">scroll-down</span> <span style="color:#2aa198">1</span>))
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">scroll-up-keep-cursor</span> ()
+(<span style="color:#b58900">interactive</span>)
+(<span style="color:#268bd2">scroll-up</span> <span style="color:#2aa198">1</span>))</code></pre></div>
+</div>
+<pre class="example">
+scroll-up-keep-cursor
+</pre>
+<h3 id="headline-12">
+Activar ido mode (cambiado por ivy-mode y swiper)
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">   (<span style="color:#268bd2">ido-mode</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<h3 id="headline-13">
+Winner mode
+</h3>
+<ul>
+<li>
+<p>
+Permite almacenar el estado anterior de las ventanas y volver con <code class="verbatim">C-c flecha</code>
+</p>
+</li>
+</ul>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">winner</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    (<span style="color:#268bd2">winner-mode</span> <span style="color:#cb4b16">t</span>))</code></pre></div>
+</div>
+<h3 id="headline-14">
+Ace window
+</h3>
+<p>
+Visto en <a href="https://www.youtube.com/watch?v=D6OUMVbPKSA&amp;index=5&amp;list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg">https://www.youtube.com/watch?v=D6OUMVbPKSA&amp;index=5&amp;list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg</a>
+   parece muy util.
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">ace-window</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+
+    (<span style="color:#b58900">defun</span> <span style="color:#268bd2">my-ace-window</span> ()
+      (<span style="color:#b58900">interactive</span>)
+      (<span style="color:#268bd2">linum-mode</span> <span style="color:#2aa198">-1</span>)
+      (<span style="color:#268bd2">ace-window</span> <span style="color:#2aa198">1</span>)
+      (<span style="color:#268bd2">linum-mode</span> <span style="color:#2aa198">1</span>))
+
+    (<span style="color:#268bd2">global-set-key</span> [<span style="color:#268bd2">remap</span> <span style="color:#268bd2">other-window</span>] <span style="color:#2aa198">&#39;ace-window</span>)
+                                       <span style="color:#586e75">;(setq aw-scope &#39;frame)</span>
+    <span style="color:#b58900">:config</span> 
+    (<span style="color:#268bd2">custom-set-faces</span>
+         <span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">aw-leading-char-face</span>
+           ((<span style="color:#cb4b16">t</span> (<span style="color:#b58900">:inherit</span> <span style="color:#268bd2">ace-jump-face-foreground</span> <span style="color:#b58900">:height</span> <span style="color:#2aa198">2.0</span>))))))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-15">
+Auto revert mode
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">global-auto-revert-mode</span> <span style="color:#2aa198">1</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-16">
+cambar preguntas de yes or no por y or n
+</h3>
+<p>
+<a href="http://pages.sachachua.com/.emacs.d/Sacha.html#org0477c97">http://pages.sachachua.com/.emacs.d/Sacha.html#org0477c97</a>
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">fset</span> <span style="color:#2aa198">&#39;yes-or-no-p</span> <span style="color:#2aa198">&#39;y-or-n-p</span>)</code></pre></div>
+</div>
+<pre class="example">
+y-or-n-p
+</pre>
+<h3 id="headline-17">
+Desactivar la pantalla de bienvenida
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">inhibit-startup-message</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-18">
+Modo terminal
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;term-mode-hook</span> <span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">set-background-color</span> <span style="color:#268bd2">white</span>))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>set-background-color</td>
+<td>white</td>
+</tr>
+</tbody>
+</table>
+<h2 id="headline-19">
+Utilidades
+</h2>
+<h3 id="headline-20">
+seleccionar con <code class="verbatim">C-=</code>
+</h3>
+<p>
+como en <a href="https://www.youtube.com/watch?v=vKIFi1h0I5Y&amp;index=17&amp;list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg&amp;spfreload=5">https://www.youtube.com/watch?v=vKIFi1h0I5Y&amp;index=17&amp;list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg&amp;spfreload=5</a>
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">expand-region</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-=&#34;</span>) <span style="color:#2aa198">&#39;er/expand-region</span>)
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-¿&#34;</span>) <span style="color:#2aa198">&#39;er/contract-region</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-21">
+suena interesante (historial de portapapeles con ivy y counsel)
+</h3>
+<p>
+<a href="https://www.youtube.com/watch?v=LReZI7VAy8w&amp;index=20&amp;list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg">https://www.youtube.com/watch?v=LReZI7VAy8w&amp;index=20&amp;list=PL9KxKa8NpFxIcNQa9js7dQQIHc81b0-Xg</a>
+</p>
+<h3 id="headline-22">
+atajo para ir directamente a una linea <code class="verbatim">goto-line</code> 
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-c C-g C-l&#34;</span>) <span style="color:#2aa198">&#39;goto-line</span>)</code></pre></div>
+</div>
+<pre class="example">
+goto-line
+</pre>
+<h3 id="headline-23">
+Ivi mode y swiper
+</h3>
+<h4 id="headline-24">
+Mirar helm (parece mas potente)
+</h4>
+<p>
+<a href="https://github.com/emacs-helm/helm">https://github.com/emacs-helm/helm</a>
+    <a href="https://github.com/abo-abo/swiper-helm">https://github.com/abo-abo/swiper-helm</a>
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">ivy</span>
+  <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+  <span style="color:#b58900">:config</span>
+  (<span style="color:#268bd2">ivy-mode</span> <span style="color:#2aa198">1</span>))
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">swiper</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">counsel</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+  <span style="color:#586e75">;(setq ivy-use-virtual-buffers t)</span></code></pre></div>
+</div>
+<h3 id="headline-25">
+Helm
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">helm</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">helm-autoresize-mode</span> <span style="color:#cb4b16">t</span>)
+    (<span style="color:#268bd2">helm-mode</span> <span style="color:#cb4b16">t</span>)
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-x C-f&#34;</span>) <span style="color:#2aa198">&#39;helm-find-files</span>)<span style="color:#586e75">; &lt;del&gt; borre hasta /</span>
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-x b&#34;</span>) <span style="color:#2aa198">&#39;helm-mini</span>)
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;M-x&#34;</span>) <span style="color:#2aa198">&#39;helm-M-x</span>)
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;M-y&#34;</span>) <span style="color:#2aa198">&#39;helm-show-kill-ring</span>)
+    (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">helm-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;tab&gt;&#34;</span>) <span style="color:#2aa198">&#39;helm-execute-persistent-action</span>))
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">swiper-helm</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">global-set-key</span> <span style="color:#2aa198">&#34;\C-s&#34;</span> <span style="color:#2aa198">&#39;swiper-helm</span>)
+    (<span style="color:#268bd2">global-set-key</span> <span style="color:#2aa198">&#34;\C-r&#34;</span> <span style="color:#2aa198">&#39;swiper-helm</span>)
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-c C-r&#34;</span>) <span style="color:#2aa198">&#39;ivy-resume</span>)
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">ivy-use-virtual-buffers</span> <span style="color:#cb4b16">t</span>)
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">ivy-display-style</span> <span style="color:#2aa198">&#39;fancy</span>)
+    (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">read-expression-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-r&#34;</span>) <span style="color:#2aa198">&#39;counsel-expression-history</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h4 id="headline-26">
+helm-google 
+</h4>
+<p>
+¿Por qué no?
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">helm-google</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<h3 id="headline-27">
+neotree
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">neotree</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">neo-theme</span> (<span style="color:#b58900">if</span> (<span style="color:#268bd2">display-graphic-p</span>) <span style="color:#2aa198">&#39;ascii</span> <span style="color:#2aa198">&#39;arrow</span>))
+    (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-x n t&#34;</span>) <span style="color:#2aa198">&#39;neotree-toggle</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-28">
+smartparents
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">smartparens</span>
+       <span style="color:#b58900">:ensure</span> <span style="color:#268bd2">smartparens</span>
+       <span style="color:#b58900">:init</span>
+       (<span style="color:#268bd2">smartparens-global-mode</span> <span style="color:#cb4b16">t</span>))</code></pre></div>
+</div>
+<h3 id="headline-29">
+which-key
+</h3>
+<p>
+En ocasiones no recuerdas que combinacion realiza una accion en
+   concreto, ahi es cuando which-key entra en accion.
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">which-key</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    (<span style="color:#268bd2">which-key-mode</span> <span style="color:#2aa198">1</span>))</code></pre></div>
+</div>
+<h3 id="headline-30">
+engine-mode
+</h3>
+<p>
+seleccionar y buscar desde emacs
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">engine-mode</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">engine-mode</span> <span style="color:#cb4b16">t</span>)
+    (<span style="color:#268bd2">defengine</span> <span style="color:#268bd2">duckduckgo</span>
+      <span style="color:#2aa198">&#34;https://duckduckgo.com/?q=%s&#34;</span>
+      <span style="color:#b58900">:keybinding</span> <span style="color:#2aa198">&#34;d&#34;</span>)
+
+    (<span style="color:#268bd2">defengine</span> <span style="color:#268bd2">google</span>
+      <span style="color:#2aa198">&#34;http://www.google.com/search?ie=utf-8&amp;oe=utf-8&amp;q=%s&#34;</span>
+      <span style="color:#b58900">:keybinding</span> <span style="color:#2aa198">&#34;g&#34;</span>)
+    )</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-31">
+Hydra
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">     (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">hydra</span>
+       <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<h3 id="headline-32">
+evil-mode
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">evil</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">evil-mode</span> <span style="color:#2aa198">1</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h2 id="headline-33">
+elfeed
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">elfeed</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    <span style="color:#b58900">:config</span>
+  )
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">elfeed-db-directory</span> <span style="color:#2aa198">&#34;~/.emacs.d/elfeeddb&#34;</span>)</code></pre></div>
+</div>
+<pre class="example">
+~/.emacs.d/elfeeddb
+</pre>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">elfeed-goodies</span>
+  <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+  <span style="color:#b58900">:config</span> 
+  )
+  (<span style="color:#268bd2">elfeed-goodies/setup</span>)</code></pre></div>
+</div>
+<pre class="example">
+elfeed-goodies/split-show-prev
+</pre>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">elfeed-org</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    )
+  (<span style="color:#268bd2">elfeed-org</span>)
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">rmh-elfeed-org-files</span> (<span style="color:#268bd2">list</span> <span style="color:#2aa198">&#34;/data/Nextcloud/org/rss.org&#34;</span>))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>/data/Nextcloud/org/rss.org</td>
+</tr>
+</tbody>
+</table>
+<h2 id="headline-34">
+Ajustes para lenguajes de programacion
+</h2>
+<h3 id="headline-35">
+projectile mode
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">projectile</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    (<span style="color:#268bd2">projectile-mode</span> <span style="color:#cb4b16">t</span>))</code></pre></div>
+</div>
+<h3 id="headline-36">
+Autocomplete mode.
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">auto-complete</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">ac-config-default</span>)
+    (<span style="color:#268bd2">global-auto-complete-mode</span> <span style="color:#2aa198">-1</span>))
+
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;org-mode-hook</span> <span style="color:#2aa198">&#39;auto-complete-mode</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>(lambda nil (org-bullets-mode t))</td>
+<td>auto-complete-mode</td>
+<td>er/add-org-mode-expansions</td>
+<td>#[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-block-all append local] 5]</td>
+<td>#[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5]</td>
+<td>org-babel-result-hide-spec</td>
+<td>org-babel-hide-all-hashes</td>
+<td>org-ac/setup-current-buffer</td>
+<td>auto-revert-mode</td>
+</tr>
+</tbody>
+</table>
+<h3 id="headline-37">
+Activar company mode de modo global y flycheck para colorear la sintaxis
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">flycheck</span>
+  <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+  <span style="color:#b58900">:init</span>
+  (<span style="color:#268bd2">global-flycheck-mode</span> <span style="color:#cb4b16">t</span>))
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">company</span>
+  <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+  <span style="color:#b58900">:config</span>
+  (<span style="color:#268bd2">global-company-mode</span> <span style="color:#cb4b16">t</span>)
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">company-echo-delay</span> <span style="color:#2aa198">0</span>)
+  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-*&#34;</span>) <span style="color:#2aa198">&#39;company-complete</span>)
+  (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;company-backends</span> <span style="color:#2aa198">&#39;company-elisp</span>)
+  (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;company-backends</span> <span style="color:#2aa198">&#39;company-tern</span>)
+  (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;company-backends</span> <span style="color:#2aa198">&#39;company-css</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-38">
+Yasnippet.
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">yasnippet</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    (<span style="color:#268bd2">yas-global-mode</span> <span style="color:#2aa198">1</span>)
+    (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;company-backends</span> <span style="color:#2aa198">&#39;company-yasnippet</span>))</code></pre></div>
+</div>
+<h3 id="headline-39">
+Multiples cursores, muy practico para editar html.
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">multiple-cursors</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<h4 id="headline-40">
+Hydra para multiple cursors.
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">defhydra</span> <span style="color:#268bd2">hydra-multiple-cursors</span> (<span style="color:#268bd2">global-map</span> <span style="color:#2aa198">&#34;C-c m&#34;</span>)
+    <span style="color:#2aa198">&#34;multiple cursors&#34;</span>
+    (<span style="color:#2aa198">&#34;&gt;&#34;</span> <span style="color:#268bd2">mc/mark-next-like-this</span> <span style="color:#2aa198">&#34;next like this&#34;</span>)
+    (<span style="color:#2aa198">&#34;&lt;&#34;</span> <span style="color:#268bd2">mc/mark-previous-like-this</span> <span style="color:#2aa198">&#34;previous like this&#34;</span>)
+    (<span style="color:#2aa198">&#34;c&#34;</span> <span style="color:#268bd2">mc/edit-lines</span> <span style="color:#2aa198">&#34;edit lines&#34;</span>)
+    (<span style="color:#2aa198">&#34;e&#34;</span> <span style="color:#268bd2">mc/edit-ends-of-lines</span> <span style="color:#2aa198">&#34;edit end of lines&#34;</span>)
+    (<span style="color:#2aa198">&#34;b&#34;</span> <span style="color:#268bd2">mc/edit-beginnings-of-lines</span> <span style="color:#2aa198">&#34;edit begin of lines&#34;</span>)
+    )</code></pre></div>
+</div>
+<pre class="example">
+hydra-multiple-cursors/body
+</pre>
+<h3 id="headline-41">
+dumb jump
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">dumb-jump</span>
+    <span style="color:#b58900">:ensure</span>
+    <span style="color:#b58900">:bind</span> 
+    ((<span style="color:#2aa198">&#34;C-x g o&#34;</span> <span style="color:#719e07">.</span> <span style="color:#268bd2">dumb-jump-go-other-window</span>)
+     (<span style="color:#2aa198">&#34;C-x g j&#34;</span> <span style="color:#719e07">.</span> <span style="color:#268bd2">dumb-jump-go</span>)
+     (<span style="color:#2aa198">&#34;C-x g x&#34;</span> <span style="color:#719e07">.</span> <span style="color:#268bd2">dumb-jump-go-prefer-external</span>)
+     (<span style="color:#2aa198">&#34;C-x g z&#34;</span> <span style="color:#719e07">.</span> <span style="color:#268bd2">dumb-jump-go-prefer-external-other-window</span>))
+    <span style="color:#b58900">:config</span> (<span style="color:#b58900">setq</span> <span style="color:#268bd2">dumb-jump-selector</span> <span style="color:#2aa198">&#39;helm</span>)
+    )</code></pre></div>
+</div>
+<h3 id="headline-42">
+minimap
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">minimap</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">minimap-window-location</span> <span style="color:#2aa198">&#39;right</span>)
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">minimap-always-recenter</span> <span style="color:#2aa198">-1</span>)
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">minimap-minimum-width</span> <span style="color:#2aa198">&#39;0</span>)
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">minimap-width-fraction</span> <span style="color:#2aa198">0.1</span>)
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">minimap-update</span> <span style="color:#2aa198">1</span>)
+    )</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-43">
+Python
+</h3>
+<h4 id="headline-44">
+autocomplete con company Jedi
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">company-jedi</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">my/python-mode-hook</span> ()
+    (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;company-backends</span> <span style="color:#2aa198">&#39;company-jedi</span>))
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;python-mode-hook</span> <span style="color:#2aa198">&#39;my/python-mode-hook</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>my/python-mode-hook</td>
+<td>(lambda nil (set (make-local-variable (quote yas-indent-line)) (quote fixed)))</td>
+<td>elpy-mode</td>
+<td>er/add-python-mode-expansions</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headline-45">
+elpy
+</h4>
+<p>
+utilidades de IDE python en emacs
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">elpy</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;python-mode-hook</span> <span style="color:#2aa198">&#39;elpy-mode</span>)
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;elpy-mode-hook</span> (<span style="color:#268bd2">auto-complete-mode</span> <span style="color:#2aa198">-1</span>))
+    )</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-46">
+C++
+</h3>
+<h4 id="headline-47">
+autocomplete C/C++ headers from .h files in a project
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">auto-complete-c-headers</span>
+<span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+<span style="color:#b58900">:config</span>
+(<span style="color:#b58900">defun</span> <span style="color:#268bd2">my:ac-c-headers-init</span> ()
+(<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;auto-complete-c-headers</span>)
+(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;ac-sources</span> <span style="color:#2aa198">&#39;ac-source-c-headers</span>)))
+
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;c++-mode-hook</span> <span style="color:#2aa198">&#39;my:ac-c-headers-init</span>)
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;c-mode-hook</span> <span style="color:#2aa198">&#39;my:ac-c-headers-init</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>my:ac-c-headers-init</td>
+<td>(lambda nil (easy-menu-add-item nil (quote (C)) (rtags-submenu-list)))</td>
+<td>er/add-cc-mode-expansions</td>
+<td>rtags-start-process-unless-running</td>
+<td>irony-mode</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headline-48">
+Irony-mode
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">irony</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">company-irony</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">flycheck-irony</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">flycheck-irony-setup</span>))
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">company-irony-c-headers</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;c++-mode-hook</span> <span style="color:#2aa198">&#39;irony-mode</span>)
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;c-mode-hook</span> <span style="color:#2aa198">&#39;irony-mode</span>)
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;objc-mode-hook</span> <span style="color:#2aa198">&#39;irony-mode</span>)
+
+  <span style="color:#586e75">;; replace the `completion-at-point&#39; and `complete-symbol&#39; bindings in</span>
+  <span style="color:#586e75">;; irony-mode&#39;s buffers by irony-mode&#39;s function</span>
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">my-irony-mode-hook</span> ()
+    (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">irony-mode-map</span> [<span style="color:#268bd2">remap</span> <span style="color:#268bd2">completion-at-point</span>]
+<span style="color:#2aa198">&#39;counsel-irony</span>)
+    (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">irony-mode-map</span> [<span style="color:#268bd2">remap</span> <span style="color:#268bd2">complete-symbol</span>]
+<span style="color:#2aa198">&#39;counsel-irony</span>)
+    <span style="color:#586e75">;; ;; (define-key irony-mode-map [remap comment-region]</span>
+    <span style="color:#586e75">;; ;;   &#39;compile)</span>
+    (<span style="color:#268bd2">eval-after-load</span> <span style="color:#2aa198">&#39;company</span>
+<span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;company-backends</span> <span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">company-irony-c-headers</span> <span style="color:#268bd2">company-irony</span>))))
+
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;irony-mode-hook</span> <span style="color:#2aa198">&#39;irony-cdb-autosetup-compile-options</span>)
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;irony-mode-hook</span> <span style="color:#2aa198">&#39;my-irony-mode-hook</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>my-flycheck-rtags-setup</td>
+<td>my-irony-mode-hook</td>
+<td>irony-cdb-autosetup-compile-options</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headline-49">
+modern c++ font lock
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">modern-cpp-font-lock</span>
+<span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+<span style="color:#b58900">:config</span>
+(<span style="color:#268bd2">modern-c++-font-lock-global-mode</span> <span style="color:#cb4b16">t</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h4 id="headline-50">
+Rtags 
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;c-mode-hook</span> <span style="color:#2aa198">&#39;rtags-start-process-unless-running</span>)
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;c++-mode-hook</span> <span style="color:#2aa198">&#39;rtags-start-process-unless-running</span>)
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;objc-mode-hook</span> <span style="color:#2aa198">&#39;rtags-start-process-unless-running</span>)
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">rtags-completions-enabled</span> <span style="color:#cb4b16">t</span>)
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">rtags-autostart-diagnostics</span> <span style="color:#cb4b16">t</span>)
+  (<span style="color:#268bd2">rtags-enable-standard-keybindings</span>)</code></pre></div>
+</div>
+<pre class="example">
+rtags-location-stack-visualize
+</pre>
+<h5 id="headline-51">
+heml integration
+</h5>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">helm-rtags</span>
+<span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+<span style="color:#b58900">:config</span>
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">rtags-use-helm</span> <span style="color:#cb4b16">t</span>)
+)
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">rtags-display-result-backend</span> <span style="color:#2aa198">&#39;helm</span>)</code></pre></div>
+</div>
+<pre class="example">
+helm
+</pre>
+<h5 id="headline-52">
+company-rtags support
+</h5>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">company-rtags</span>
+<span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+<span style="color:#b58900">:config</span>
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">rtags-completions-enabled</span> <span style="color:#cb4b16">t</span>)
+(<span style="color:#268bd2">eval-after-load</span> <span style="color:#2aa198">&#39;company</span>
+<span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;company-backends</span> <span style="color:#2aa198">&#39;company-rtags</span>))
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">rtags-autostart-diagnostics</span> <span style="color:#cb4b16">t</span>)
+(<span style="color:#268bd2">rtags-enable-standard-keybindings</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h5 id="headline-53">
+flycheck rtags integration
+</h5>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#b58900">use-package</span> <span style="color:#268bd2">flycheck-rtags</span>
+<span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+<span style="color:#b58900">:config</span>
+(<span style="color:#b58900">defun</span> <span style="color:#268bd2">my-flycheck-rtags-setup</span> ()
+(<span style="color:#268bd2">flycheck-select-checker</span> <span style="color:#2aa198">&#39;rtags</span>)
+(<span style="color:#b58900">setq-local</span> <span style="color:#268bd2">flycheck-highlighting-mode</span> <span style="color:#2aa198">&#39;symbols</span>)
+(<span style="color:#b58900">setq-local</span> <span style="color:#268bd2">flycheck-check-syntax-automatically</span> <span style="color:#cb4b16">nil</span>))
+)
+
+<span style="color:#586e75">;(add-hook &#39;c-mode-common-hook #&#39;my-flycheck-rtags-setup)</span>
+(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;irony-mode-hook</span> <span style="color:#2aa198">&#39;my-flycheck-rtags-setup</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>my-flycheck-rtags-setup</td>
+<td>my-irony-mode-hook</td>
+<td>irony-cdb-autosetup-compile-options</td>
+</tr>
+</tbody>
+</table>
+<h3 id="headline-54">
+javascript
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#b58900">use-package</span> <span style="color:#268bd2">js2</span>
+  <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+  <span style="color:#b58900">:config</span>
+  (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;auto-mode-alist</span> <span style="color:#719e07">&#39;</span>(<span style="color:#2aa198">&#34;\\.js\\&#39;&#34;</span> <span style="color:#719e07">.</span> <span style="color:#268bd2">js2-mode</span>)))
+
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">js-indent-level</span> <span style="color:#2aa198">2</span>)
+(<span style="color:#b58900">use-package</span> <span style="color:#268bd2">eslint-fix</span>
+  <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+  <span style="color:#b58900">:config</span>
+   (<span style="color:#268bd2">eval-after-load</span> <span style="color:#2aa198">&#39;js2-mode</span>
+<span style="color:#719e07">&#39;</span>(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;js2-mode-hook</span> (<span style="color:#b58900">lambda</span> () (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;after-save-hook</span> <span style="color:#2aa198">&#39;eslint-fix</span> <span style="color:#cb4b16">nil</span> <span style="color:#cb4b16">t</span>)))))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">tern</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">company-tern</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<h4 id="headline-55">
+Vuejs mode
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">js-indent-level</span> <span style="color:#2aa198">2</span>)
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;js-mode-hook</span> (<span style="color:#b58900">lambda</span> () (<span style="color:#268bd2">tern-mode</span> <span style="color:#cb4b16">t</span>)))
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">vue-mode</span>
+<span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+<span style="color:#b58900">:config</span>
+(<span style="color:#b58900">setq</span> <span style="color:#268bd2">mmm-submode-decoration-level</span> <span style="color:#2aa198">0</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-56">
+html &amp;&amp; css
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">rainbow-mode</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span> 
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;html-mode-hook</span>
+     (<span style="color:#b58900">lambda</span> () 
+               (<span style="color:#268bd2">rainbow-mode</span> <span style="color:#cb4b16">t</span>)))
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;css-mode-hook</span>
+	      (<span style="color:#b58900">lambda</span> ()
+		(<span style="color:#268bd2">rainbow-mode</span> <span style="color:#cb4b16">t</span>)))
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;web-mode</span>
+	      (<span style="color:#b58900">lambda</span> ()
+		<span style="color:#268bd2">rainbow-mode</span> <span style="color:#cb4b16">t</span>)))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-57">
+Latex
+</h3>
+<p>
+No es un lenguaje de programcaion pero es donde mas sentido me parece que tiene (como html xD)
+</p>
+<h4 id="headline-58">
+autoparsear el buffer al cargarlo
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">TeX-parse-self</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h4 id="headline-59">
+Compilar siempre con pdflatex
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">TeX-PDF-mode</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h4 id="headline-60">
+Minor mode para matematicas, añade ademas ciertos atajos de teclado
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;LaTeX-mode-hook</span>
+            (<span style="color:#b58900">lambda</span> ()
+              (<span style="color:#268bd2">LaTeX-math-mode</span>)
+              (<span style="color:#b58900">setq</span> <span style="color:#268bd2">TeX-master</span> <span style="color:#cb4b16">t</span>)))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>lambda</td>
+<td>nil</td>
+<td>(LaTeX-math-mode)</td>
+<td>(setq TeX-master t)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="headline-61">
+R
+</h3>
+<h3 id="headline-62">
+Java
+</h3>
+<h4 id="headline-63">
+JDEE
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">jdee</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;java-mode-hook</span> (<span style="color:#b58900">setq</span> <span style="color:#268bd2">jdee-server-dir</span> <span style="color:#2aa198">&#34;~/.jars&#34;</span>)))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-64">
+eclipse-ecl
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;ecl-mode</span> <span style="color:#2aa198">&#34;~/.emacs.d/ecl-mode.el/ecl-mode.el&#34;</span>)</code></pre></div>
+</div>
+<pre class="example">
+ecl-mode
+</pre>
+<h3 id="headline-65">
+PDDL domain
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  <span style="color:#586e75">;(require &#39;pddl-mode &#34;~/.emacs.d/ppdl-mode.el&#34;)</span></code></pre></div>
+</div>
+<h3 id="headline-66">
+Tratar CamelCase como palabras separadas.
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#268bd2">global-subword-mode</span> <span style="color:#2aa198">1</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h2 id="headline-67">
+Magit
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">magit</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;M-g&#34;</span>) <span style="color:#2aa198">&#39;magit-status</span>)</code></pre></div>
+</div>
+<pre class="example">
+magit-status
+</pre>
+<h2 id="headline-68">
+Orgmode
+</h2>
+<h3 id="headline-69">
+Autocompletado para org
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">org-ac</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    (<span style="color:#268bd2">org-ac/config-default</span>))</code></pre></div>
+</div>
+<h3 id="headline-70">
+Autorevertmode en buffers de rogmode
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;org-mode-hook</span> <span style="color:#2aa198">&#39;auto-revert-mode</span> <span style="color:#2aa198">1</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>(lambda nil (org-bullets-mode t))</td>
+<td>auto-complete-mode</td>
+<td>er/add-org-mode-expansions</td>
+<td>#[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-block-all append local] 5]</td>
+<td>#[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5]</td>
+<td>org-babel-result-hide-spec</td>
+<td>org-babel-hide-all-hashes</td>
+<td>org-ac/setup-current-buffer</td>
+<td>auto-revert-mode</td>
+</tr>
+</tbody>
+</table>
+<h3 id="headline-71">
+Activar puntos en vez de asteriscos, que mola mas.
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">org-bullets</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;org-mode-hook</span>
+              (<span style="color:#b58900">lambda</span> ()
+		(<span style="color:#268bd2">org-bullets-mode</span> <span style="color:#cb4b16">t</span>))))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h3 id="headline-72">
+En vez de puntos suspensivos mostrar flecha &#39;⤵&#39;
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-ellipsis</span> <span style="color:#2aa198">&#34;⤵&#34;</span>)</code></pre></div>
+</div>
+<pre class="example">
+⤵
+</pre>
+<h3 id="headline-73">
+Bloques de codigo en archivos orgmode
+</h3>
+<h4 id="headline-74">
+Activar el coloreado de sintaxis en bloques de código de orgmode
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-src-fontify-natively</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h4 id="headline-75">
+Hacer que las tabulaciones actuen como si estuvieramos en un bugger del lenguaje indicadoBEGIN_SRC emacs-lisp
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-src-tab-acts-natively</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h4 id="headline-76">
+No cambiar de ventana al editar un snippet de codigo
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-src-window-setup</span> <span style="color:#2aa198">&#39;current-window</span>)</code></pre></div>
+</div>
+<pre class="example">
+current-window
+</pre>
+<h3 id="headline-77">
+GTD y ideas en org-mode
+</h3>
+<h4 id="headline-78">
+Keywords TODO
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-todo-keywords</span> <span style="color:#719e07">&#39;</span>((<span style="color:#268bd2">sequence</span> <span style="color:#2aa198">&#34;TODO&#34;</span> <span style="color:#2aa198">&#34;DOING&#34;</span> <span style="color:#2aa198">&#34;WAITING&#34;</span> <span style="color:#2aa198">&#34;|&#34;</span> <span style="color:#2aa198">&#34;DONE&#34;</span>)))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>sequence</td>
+<td>TODO</td>
+<td>DOING</td>
+<td>WAITING</td>
+<td class="align-right"></td>
+<td class="align-right"></td>
+<td>DONE</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headline-79">
+Todos los archivos org los guardo en &#39;~/org/&#39;
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-directory</span> <span style="color:#2aa198">&#34;~/org&#34;</span>)</code></pre></div>
+</div>
+<pre class="example">
+~/org
+</pre>
+<h4 id="headline-80">
+Funcion que devuelve el path de un archivo org en &#34;~/org&#34;
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">org-file-path</span> (<span style="color:#268bd2">filename</span>)
+    <span style="color:#2aa198">&#34;Return the absolute address of an org file, given its relative name.&#34;</span>
+    (<span style="color:#268bd2">concat</span> (<span style="color:#268bd2">file-name-as-directory</span> <span style="color:#268bd2">org-directory</span>) <span style="color:#268bd2">filename</span>))</code></pre></div>
+</div>
+<pre class="example">
+org-file-path
+</pre>
+<h4 id="headline-81">
+Localizacion del archivo de todos
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-index-file</span> (<span style="color:#268bd2">org-file-path</span> <span style="color:#2aa198">&#34;index.org&#34;</span>))
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-links-file</span> (<span style="color:#268bd2">org-file-path</span> <span style="color:#2aa198">&#34;to-read.org&#34;</span>))</code></pre></div>
+</div>
+<pre class="example">
+~/org/to-read.org
+</pre>
+<h4 id="headline-82">
+Localizacion del archive.org, ahi se guarda todo lo que hago.
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-archive-location</span>
+	(<span style="color:#268bd2">concat</span> (<span style="color:#268bd2">org-file-path</span> <span style="color:#2aa198">&#34;archive.org&#34;</span>) <span style="color:#2aa198">&#34;::* From %s&#34;</span>))</code></pre></div>
+</div>
+<pre class="example">
+~/org/archive.org::* From %s
+</pre>
+<h4 id="headline-83">
+La agenda se carga desde el index
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-agenda-files</span> (<span style="color:#268bd2">list</span> <span style="color:#268bd2">org-index-file</span>
+			       <span style="color:#2aa198">&#34;~/org/gcal.org&#34;</span>
+			       <span style="color:#2aa198">&#34;~/org/idea.org&#34;</span>))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>~/org/index.org</td>
+<td>~/org/gcal.org</td>
+<td>~/org/idea.org</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headline-84">
+La combinacion <code class="verbatim">C-c C-x C-s</code> establece un TODO como DONE y lo almacena en el index
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">mark-done-and-archive</span> ()
+    (<span style="color:#b58900">interactive</span>)
+    (<span style="color:#268bd2">org-todo</span> <span style="color:#2aa198">&#39;done</span>)
+    (<span style="color:#268bd2">org-archive-subtree</span>))
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">org-mode-map</span> <span style="color:#2aa198">&#34;\C-c\C-x\C-s&#34;</span> <span style="color:#2aa198">&#39;mark-done-and-archive</span>) 
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">mark-done-and-archive-agenda</span> ()
+    (<span style="color:#b58900">interactive</span>)
+    (<span style="color:#268bd2">org-agenda-todo</span> <span style="color:#2aa198">&#39;done</span>)
+    (<span style="color:#268bd2">org-agenda-archive</span>))
+  (<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;org-agenda</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">org-agenda-mode-map</span> <span style="color:#2aa198">&#34;\C-c\C-x\C-s&#34;</span> <span style="color:#2aa198">&#39;mark-done-and-archive-agenda</span>)</code></pre></div>
+</div>
+<pre class="example">
+mark-done-and-archive-agenda
+</pre>
+<h4 id="headline-85">
+en el log de orgmode cuando se ha completado una tarea
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-log-done</span> <span style="color:#2aa198">&#39;time</span>)</code></pre></div>
+</div>
+<pre class="example">
+time
+</pre>
+<h4 id="headline-86">
+Org-capture templates.
+</h4>
+<p>
+Hay templates para varias cosas:
+</p>
+<ul>
+<li>
+<p>
+Ideas que se me van ocurriendo para proyectos que hacer.
+</p>
+</li>
+<li>
+<p>
+Cosas que tengo que comprar.
+</p>
+</li>
+<li>
+<p>
+Articulos o libros que tengo que leer.
+</p>
+</li>
+<li>
+<p>
+TODOs que tengo me van surgiendo.
+</p>
+</li>
+</ul>
+<h5 id="headline-87">
+<span class="todo">TODO</span>
+completar descripcion de los templates.
+</h5>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-capture-templates</span>
+  <span style="color:#719e07">&#39;</span>((<span style="color:#2aa198">&#34;i&#34;</span> <span style="color:#2aa198">&#34;Idea&#34;</span>
+     <span style="color:#268bd2">entry</span>
+     (<span style="color:#268bd2">file</span> (<span style="color:#268bd2">org-file-path</span> <span style="color:#2aa198">&#34;idea.org&#34;</span>)
+             <span style="color:#2aa198">&#34;* IDEA %?\n&#34;</span>))
+
+    (<span style="color:#2aa198">&#34;r&#34;</span> <span style="color:#2aa198">&#34;To read item&#34;</span>
+     <span style="color:#268bd2">checkitem</span>
+     (<span style="color:#268bd2">file+datetree</span> (<span style="color:#268bd2">org-file-path</span> <span style="color:#2aa198">&#34;to-read.org&#34;</span>))
+     <span style="color:#2aa198">&#34; [ ] %? %^g&#34;</span>)
+
+    (<span style="color:#2aa198">&#34;b&#34;</span> <span style="color:#2aa198">&#34;Item to buy&#34;</span>
+     <span style="color:#268bd2">entry</span>
+     (<span style="color:#268bd2">file+datetree</span> <span style="color:#2aa198">&#34;buylist.org&#34;</span>)
+     <span style="color:#2aa198">&#34;* BUY %?&#34;</span>)
+
+     (<span style="color:#2aa198">&#34;t&#34;</span> <span style="color:#2aa198">&#34;Todo&#34;</span>
+          <span style="color:#268bd2">entry</span>
+          (<span style="color:#268bd2">file+headline</span> <span style="color:#268bd2">org-index-file</span> <span style="color:#2aa198">&#34;TASKS&#34;</span>)
+          <span style="color:#2aa198">&#34;* TODO %?\n  ADDED:%T&#34;</span>)
+
+     (<span style="color:#2aa198">&#34;u&#34;</span> <span style="color:#2aa198">&#34;UGR Todo&#34;</span>
+          <span style="color:#268bd2">entry</span>
+          (<span style="color:#268bd2">file+headline</span> <span style="color:#268bd2">org-index-file</span> <span style="color:#2aa198">&#34;UGR&#34;</span>)
+          <span style="color:#2aa198">&#34;* TODO %? %^g:UGR:\nADDED:%T&#34;</span>)
+
+     (<span style="color:#2aa198">&#34;e&#34;</span> <span style="color:#2aa198">&#34;Nuevo evento&#34;</span>
+          <span style="color:#268bd2">entry</span>
+          (<span style="color:#268bd2">file</span> <span style="color:#2aa198">&#34;~/org/gcal.org&#34;</span>)
+      <span style="color:#2aa198">&#34;* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n&#34;</span>)
+     ))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>i</td>
+<td>Idea</td>
+<td>entry</td>
+<td>(file (org-file-path idea.org) * IDEA %?</td>
+</tr>
+</tbody>
+</table>
+<h5 id="headline-88">
+Keybindings
+</h5>
+<p>
+Accesos rapidos de teclado para tareas y notas en org mode
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">global-map</span> <span style="color:#2aa198">&#34;\C-cl&#34;</span> <span style="color:#2aa198">&#39;org-store-link</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">global-map</span> <span style="color:#2aa198">&#34;\C-ca&#34;</span> <span style="color:#2aa198">&#39;org-agenda</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">global-map</span> <span style="color:#2aa198">&#34;\C-cc&#34;</span> <span style="color:#2aa198">&#39;org-capture</span>)</code></pre></div>
+</div>
+<pre class="example">
+org-capture
+</pre>
+<p>
+Presionar <code class="verbatim">C-c o i</code> para abrir <strong>index.org</strong>
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">open-index-file</span> ()
+    <span style="color:#2aa198">&#34;Open the master org TODO list.&#34;</span>
+    (<span style="color:#b58900">interactive</span>)
+    (<span style="color:#268bd2">find-file</span> <span style="color:#268bd2">org-index-file</span>)
+    (<span style="color:#268bd2">flycheck-mode</span> <span style="color:#2aa198">-1</span>)
+    (<span style="color:#268bd2">end-of-buffer</span>))
+
+  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-c o i&#34;</span>) <span style="color:#2aa198">&#39;open-index-file</span>)</code></pre></div>
+</div>
+<pre class="example">
+open-index-file
+</pre>
+<p>
+<code class="verbatim">C-c o l</code> open links file
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">    (<span style="color:#b58900">defun</span> <span style="color:#268bd2">open-links-file</span> ()
+      <span style="color:#2aa198">&#34;Open my to-read list&#34;</span>
+      (<span style="color:#b58900">interactive</span>)
+      (<span style="color:#268bd2">find-file</span> <span style="color:#268bd2">org-links-file</span>)
+      (<span style="color:#268bd2">flycheck-mode</span> <span style="color:#2aa198">-1</span>)
+      (<span style="color:#268bd2">end-of-buffer</span>)
+      )
+
+  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-c o l&#34;</span>) <span style="color:#2aa198">&#39;open-links-file</span>)</code></pre></div>
+</div>
+<pre class="example">
+open-links-file
+</pre>
+<pre class="example">
+find-to-read-file
+</pre>
+<h5 id="headline-89">
+Hit <code class="verbatim">M-n</code> to quickly open up a capture template for a new todo.
+</h5>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">org-capture-todo</span> ()
+    (<span style="color:#b58900">interactive</span>)
+    (<span style="color:#268bd2">org-capture</span> <span style="color:#b58900">:keys</span> <span style="color:#2aa198">&#34;t&#34;</span>))
+
+  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;M-n&#34;</span>) <span style="color:#2aa198">&#39;org-capture-todo</span>)</code></pre></div>
+</div>
+<pre class="example">
+org-capture-todo
+</pre>
+<h4 id="headline-90">
+Frame para capturas.
+</h4>
+<p>
+De <a href="https://github.com/zamansky/using-emacs/blob/master/myinit.org">Zamansky</a>
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">    (<span style="color:#b58900">defadvice</span> <span style="color:#268bd2">org-capture-finalize</span> 
+	(<span style="color:#268bd2">after</span> <span style="color:#268bd2">delete-capture-frame</span> <span style="color:#268bd2">activate</span>)  
+      <span style="color:#2aa198">&#34;Advise capture-finalize to close the frame&#34;</span>  
+      (<span style="color:#b58900">if</span> (<span style="color:#268bd2">equal</span> <span style="color:#2aa198">&#34;capture&#34;</span> (<span style="color:#268bd2">frame-parameter</span> <span style="color:#cb4b16">nil</span> <span style="color:#2aa198">&#39;name</span>))  
+      (<span style="color:#268bd2">delete-frame</span>)))
+
+    (<span style="color:#b58900">defadvice</span> <span style="color:#268bd2">org-capture-destroy</span> 
+	(<span style="color:#268bd2">after</span> <span style="color:#268bd2">delete-capture-frame</span> <span style="color:#268bd2">activate</span>)  
+      <span style="color:#2aa198">&#34;Advise capture-destroy to close the frame&#34;</span>  
+      (<span style="color:#b58900">if</span> (<span style="color:#268bd2">equal</span> <span style="color:#2aa198">&#34;capture&#34;</span> (<span style="color:#268bd2">frame-parameter</span> <span style="color:#cb4b16">nil</span> <span style="color:#2aa198">&#39;name</span>))  
+      (<span style="color:#268bd2">delete-frame</span>)))  
+
+    (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">noflet</span>
+      <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+
+    (<span style="color:#b58900">defun</span> <span style="color:#268bd2">make-capture-frame</span> ()
+      <span style="color:#2aa198">&#34;Create a new frame and run org-capture.&#34;</span>
+      (<span style="color:#b58900">interactive</span>)
+      (<span style="color:#268bd2">make-frame</span> <span style="color:#719e07">&#39;</span>((<span style="color:#268bd2">name</span> <span style="color:#719e07">.</span> <span style="color:#2aa198">&#34;Capture&#34;</span>)))
+      (<span style="color:#268bd2">select-frame-by-name</span> <span style="color:#2aa198">&#34;Capture&#34;</span>)
+      (<span style="color:#268bd2">noflet</span> ((<span style="color:#268bd2">switch-to-buffer-other-window</span> (<span style="color:#268bd2">buf</span>) (<span style="color:#268bd2">switch-to-buffer</span> <span style="color:#268bd2">buf</span>)))
+	(<span style="color:#268bd2">delete-other-windows</span>)
+	(<span style="color:#268bd2">delete-other-frames</span>)
+	(<span style="color:#268bd2">org-capture</span>)))
+
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;org-capture-mode-hook</span> <span style="color:#2aa198">&#39;delete-other-windows</span>)
+    (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;org-capture-after-finalize-hook</span> <span style="color:#2aa198">&#39;delete-frame</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>delete-frame</td>
+</tr>
+</tbody>
+</table>
+<p>
+    ;; TODO: fix delete-other-windows
+</p>
+<pre class="example">
+make-capture-frame
+</pre>
+<h4 id="headline-91">
+gcal-org
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">org-gcal</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:config</span>
+    (<span style="color:#268bd2">load-file</span> <span style="color:#2aa198">&#34;~/.emacs.d/hidden.el&#34;</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h5 id="headline-92">
+hooks para la agenda:
+</h5>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  <span style="color:#586e75">;(add-hook &#39;after-init-hook (lambda () (org-gcal-sync) ))</span>
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;org-agenda-mode-hook</span> (<span style="color:#b58900">lambda</span> () (<span style="color:#268bd2">org-gcal-sync</span>) ))
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;org-capture-after-finalize-hook</span> (<span style="color:#b58900">lambda</span> () (<span style="color:#268bd2">org-gcal-sync</span>) ))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>(lambda nil (org-gcal-sync))</td>
+<td>delete-frame</td>
+</tr>
+</tbody>
+</table>
+<h4 id="headline-93">
+my-org-agenda-list
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">my-org-agenda-list</span>()
+      (<span style="color:#b58900">interactive</span>)
+    <span style="color:#2aa198">&#34;&#34;&#34;show agenda without other windows&#34;</span>
+    (<span style="color:#268bd2">org-agenda-list</span>)
+    (<span style="color:#268bd2">delete-other-windows</span>))</code></pre></div>
+</div>
+<pre class="example">
+my-org-agenda-list
+</pre>
+<h3 id="headline-94">
+Exportando desde orgmode
+</h3>
+<h4 id="headline-95">
+Exportar a markdown y beamer directamente
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">ox-md</span>)
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">ox-beamer</span>)
+  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">ox-reveal</span>)</code></pre></div>
+</div>
+<pre class="example">
+ox-reveal
+</pre>
+<h4 id="headline-96">
+Export to bootstrap
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">ox-twbs</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)</code></pre></div>
+</div>
+<h4 id="headline-97">
+Permitir que babel evalue codigo de GNUPLOT, emacs-lisp, ruby, y python.
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">org-babel-do-load-languages</span>
+   <span style="color:#2aa198">&#39;org-babel-load-languages</span>
+   <span style="color:#719e07">&#39;</span>((<span style="color:#268bd2">emacs-lisp</span> <span style="color:#719e07">.</span> <span style="color:#cb4b16">t</span>)
+(<span style="color:#268bd2">ruby</span> <span style="color:#719e07">.</span> <span style="color:#cb4b16">t</span>)
+(<span style="color:#268bd2">python</span> <span style="color:#719e07">.</span> <span style="color:#cb4b16">t</span>)
+(<span style="color:#268bd2">dot</span> <span style="color:#719e07">.</span> <span style="color:#cb4b16">t</span>)
+(<span style="color:#268bd2">gnuplot</span> <span style="color:#719e07">.</span> <span style="color:#cb4b16">t</span>)))
+
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-confirm-babel-evaluate</span> <span style="color:#cb4b16">nil</span>)</code></pre></div>
+</div>
+<h4 id="headline-98">
+Desactivar la confirmacion para evaluar codigo
+</h4>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-confirm-babel-evaluate</span> <span style="color:#cb4b16">nil</span>)</code></pre></div>
+</div>
+<h4 id="headline-99">
+Exportar a PDF
+</h4>
+<p>
+Activar el coloreado de codigo con pylint
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-latex-pdf-process</span>
+	<span style="color:#719e07">&#39;</span>(<span style="color:#2aa198">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>
+          <span style="color:#2aa198">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>
+          <span style="color:#2aa198">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f</td>
+<td>pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f</td>
+<td>pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f</td>
+</tr>
+</tbody>
+</table>
+<p>
+Ademas incluimos este paquete en todos los documetos de latex que exportemos
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;org-latex-packages-alist</span> <span style="color:#719e07">&#39;</span>(<span style="color:#2aa198">&#34;&#34;</span> <span style="color:#2aa198">&#34;minted&#34;</span>))
+  (<span style="color:#b58900">setq</span> <span style="color:#268bd2">org-latex-listings</span> <span style="color:#2aa198">&#39;minted</span>)</code></pre></div>
+</div>
+<pre class="example">
+minted
+</pre>
+<h3 id="headline-100">
+Org-sync para gestionar los issues de github en orgmode
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">   (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">org-sync</span>
+     <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+     <span style="color:#b58900">:config</span>
+     <span style="color:#586e75">;backend para github si queremos mas solo añadir</span>
+     (<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;org-sync-github</span>))</code></pre></div>
+</div>
+<pre class="example">
+t
+</pre>
+<h4 id="headline-101">
+funcion que detecta si hay un repositorio de git en el directorio actual y carga automaticamente los issues en &lt;nombre_repo&gt;.org
+</h4>
+<h5 id="headline-102">
+<span class="todo">TODO</span>
+la funcion y aprender lisp xD
+</h5>
+<h3 id="headline-103">
+funcion para actualizar el indice de cosas que leer en el navegador
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  <span style="color:#586e75">;; Auto-export org files to html when saved </span>
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">org-mode-export-hook</span>()
+    <span style="color:#2aa198">&#34;Auto export html&#34;</span>
+    (<span style="color:#b58900">when</span> (<span style="color:#268bd2">eq</span> <span style="color:#268bd2">major-mode</span> <span style="color:#2aa198">&#39;org-mode</span>)
+      (<span style="color:#b58900">when</span> (<span style="color:#268bd2">equal</span> <span style="color:#268bd2">buffer-file-name</span> <span style="color:#2aa198">&#34;/home/rafa/org/to-read.org&#34;</span>)
+       (<span style="color:#268bd2">org-twbs-export-to-html</span> <span style="color:#cb4b16">t</span>))))
+
+  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;after-save-hook</span> <span style="color:#2aa198">&#39;org-mode-export-hook</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>org-mode-export-hook</td>
+</tr>
+</tbody>
+</table>
+<h2 id="headline-104">
+small-shell from <a href="https://github.com/vterron/dot-emacs">@pyctor</a>
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">small-shell</span> ()
+    (<span style="color:#b58900">interactive</span>)
+    (<span style="color:#268bd2">split-window-vertically</span>)
+    (<span style="color:#268bd2">other-window</span> <span style="color:#2aa198">1</span>)
+    (<span style="color:#268bd2">shrink-window</span> (<span style="color:#268bd2">-</span> (<span style="color:#268bd2">window-height</span>) <span style="color:#2aa198">12</span>))
+    (<span style="color:#268bd2">eshell</span> <span style="color:#2aa198">&#34;/bin/zsh&#34;</span>)) <span style="color:#586e75">;Me gusta mas eshell que ansi-term que usaba el original</span>
+
+  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-ñ&#34;</span>) <span style="color:#2aa198">&#39;small-shell</span>)
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">delete-shell-window</span> ()
+    (<span style="color:#b58900">interactive</span>)
+    (<span style="color:#b58900">when</span> (<span style="color:#268bd2">eq</span> <span style="color:#268bd2">major-mode</span> <span style="color:#2aa198">&#39;eshell</span>)
+      (<span style="color:#b58900">when</span> (<span style="color:#268bd2">eq</span> <span style="color:#268bd2">window-height</span> <span style="color:#2aa198">12</span>)
+	(<span style="color:#268bd2">delete-window</span> <span style="color:#cb4b16">t</span>))))
+
+  <span style="color:#586e75">;; (add-hook &#39;eshell-exit-hook </span>
+  <span style="color:#586e75">;; 	  (lambda ()</span>
+  <span style="color:#586e75">;; 	    ((if (eq window-height 12)</span>
+  <span style="color:#586e75">;; 		))))</span></code></pre></div>
+</div>
+<pre class="example">
+delete-shell-window
+</pre>
+<h3 id="headline-105">
+salir de small-shell y matar el buffer
+</h3>
+<p>
+como solo la uso para cosas brebes no me interesa tener abiertas 2000000 instancias de small-shells
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;eshell-hook</span> (<span style="color:#b58900">lambda</span> ()
+         		  (<span style="color:#268bd2">local-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-x C-k p&#34;</span>)
+      				 (<span style="color:#268bd2">delete-window</span>)
+         				 )))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>lambda</td>
+<td>nil</td>
+<td>(local-set-key (kbd C-x C-k p) (delete-window))</td>
+</tr>
+</tbody>
+</table>
+<h2 id="headline-106">
+pop-shell
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">shell-pop</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">shell-pop-shell-type</span> <span style="color:#2aa198">&#34;eshell&#34;</span>)
+    (<span style="color:#b58900">setq</span> <span style="color:#268bd2">shell-pop-shell-type</span> (<span style="color:#b58900">quote</span> (<span style="color:#2aa198">&#34;ansi-term&#34;</span> <span style="color:#2aa198">&#34;*ansi-term*&#34;</span> (<span style="color:#b58900">lambda</span> <span style="color:#cb4b16">nil</span> (<span style="color:#268bd2">ansi-term</span> <span style="color:#268bd2">shell-pop-term-shell</span>))))))</code></pre></div>
+</div>
+<h2 id="headline-107">
+Undo Tree 
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">use-package</span> <span style="color:#268bd2">undo-tree</span>
+    <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>
+    <span style="color:#b58900">:init</span>
+    (<span style="color:#268bd2">global-undo-tree-mode</span> <span style="color:#2aa198">1</span>))</code></pre></div>
+</div>
+<h2 id="headline-108">
+Desactivo las flechas para no usarlas, que para algo tiene emacs tantos atajos
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">disable-arrow-keys</span> ()
+  (<span style="color:#b58900">interactive</span>)
+<span style="color:#586e75">;;;Desactiva la nevagacion con las flechas</span>
+  (<span style="color:#268bd2">global-unset-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;left&gt;&#34;</span>))
+  (<span style="color:#268bd2">global-unset-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;right&gt;&#34;</span>))
+  (<span style="color:#268bd2">global-unset-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;up&gt;&#34;</span>))
+  (<span style="color:#268bd2">global-unset-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;down&gt;&#34;</span>)))
+
+
+  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">enable-arrow-keys</span> ()
+  (<span style="color:#b58900">interactive</span>)
+<span style="color:#586e75">;;;Activa la navegacion con flecha</span>
+   (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;left&gt;&#34;</span>) <span style="color:#2aa198">&#39;left-char</span>)
+   (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;right&gt;&#34;</span>)  <span style="color:#2aa198">&#39;right-char</span>)
+   (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;up&gt;&#34;</span>) <span style="color:#2aa198">&#39;previous-line</span>)
+   (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;&lt;down&gt;&#34;</span>) <span style="color:#2aa198">&#39;next-line</span>))
+
+  <span style="color:#586e75">;(disable-arrow-keys) He conseguido no usar las flechas al fin</span></code></pre></div>
+</div>
+<pre class="example">
+enable-arrow-keys
+</pre>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;term-mode-hook</span>
+	    (<span style="color:#b58900">lambda</span> ()
+	      (<span style="color:#268bd2">local-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-c C-k&#34;</span>) <span style="color:#2aa198">&#39;kill-buffer-this-buffer</span>)))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>lambda</td>
+<td>nil</td>
+<td>(local-set-key (kbd C-c C-k) (quote kill-buffer-this-buffer))</td>
+</tr>
+</tbody>
+</table>
+<h2 id="headline-109">
+Abrir cheatseet de emacs.
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#b58900">defun</span> <span style="color:#268bd2">open-cheat-sheet</span> ()
+    <span style="color:#2aa198">&#34;Abre en un buffer aparte el cheat-sheet de emacs realizado por mi en orgmode&#34;</span>
+    (<span style="color:#b58900">interactive</span>)
+    <span style="color:#586e75">;; (split-window-horizontally)</span>
+    <span style="color:#586e75">;; (other-window 1)</span>
+    <span style="color:#586e75">;; (shrink-window (- (window-width) 30)) ;No va la anchura pero weno</span>
+    (<span style="color:#268bd2">find-file-other-frame</span> <span style="color:#2aa198">&#34;~/.emacs.d/cheat-sheet.org&#34;</span>))</code></pre></div>
+</div>
+<pre class="example">
+open-cheat-sheet
+</pre>
+<h2 id="headline-110">
+Arrancar emacs como servidor si no esta arrancado.
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"> (<span style="color:#268bd2">server-mode</span> <span style="color:#2aa198">1</span>)</code></pre></div>
+</div>
+<h3 id="headline-111">
+Para cargar el tema personalizado en cada frame que creemos
+</h3>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;after-make-frame-functions</span>
+            (<span style="color:#b58900">lambda</span> (<span style="color:#268bd2">frame</span>)
+              (<span style="color:#268bd2">select-frame</span> <span style="color:#268bd2">frame</span>)
+              (<span style="color:#268bd2">load-my-theme</span>)
+	      (<span style="color:#268bd2">set-font</span>)))</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>(lambda (frame) (select-frame frame) (load-my-theme) (set-font))</td>
+<td>x-dnd-init-frame</td>
+</tr>
+</tbody>
+</table>
+<h2 id="headline-112">
+Atajos personalizados
+</h2>
+<h3 id="headline-113">
+al abrir la lista de buffer cambiar directamente a esa ventana
+</h3>
+<p>
+Cuando ejecuto <code class="verbatim">C-x C-b</code> normalmente quiero hacer algo como eliminar varios buffers a la vez, por lo que cada vez que abra la lista de buffers quiero saltar a ella.
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-x C-b&#34;</span>) <span style="color:#2aa198">&#39;ibuffer</span>)</code></pre></div>
+</div>
+<pre class="example">
+ibuffer
+</pre>
+<h3 id="headline-114">
+kill-this-buffer con <code class="verbatim">C-x k</code> 
+</h3>
+<p>
+Normalmente cuando ejecuto <code class="verbatim">C-x k</code> es para eliminar el buffer en el que estoy actualmente.
+</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-x k&#34;</span>) <span style="color:#2aa198">&#39;kill-this-buffer</span>)</code></pre></div>
+</div>
+<pre class="example">
+kill-this-buffer
+</pre>
+<h2 id="headline-115">
+Evil settings
+</h2>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;messages-buffer-mode-hook</span> <span style="color:#2aa198">&#39;evil-insert-state</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">evil-normal-state-map</span> [<span style="color:#268bd2">escape</span>] <span style="color:#2aa198">&#39;keyboard-quit</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">evil-visual-state-map</span> [<span style="color:#268bd2">escape</span>] <span style="color:#2aa198">&#39;keyboard-quit</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">minibuffer-local-map</span> [<span style="color:#268bd2">escape</span>] <span style="color:#2aa198">&#39;minibuffer-keyboard-quit</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">minibuffer-local-ns-map</span> [<span style="color:#268bd2">escape</span>] <span style="color:#2aa198">&#39;minibuffer-keyboard-quit</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">minibuffer-local-completion-map</span> [<span style="color:#268bd2">escape</span>] <span style="color:#2aa198">&#39;minibuffer-keyboard-quit</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">minibuffer-local-must-match-map</span> [<span style="color:#268bd2">escape</span>] <span style="color:#2aa198">&#39;minibuffer-keyboard-quit</span>)
+  (<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">minibuffer-local-isearch-map</span> [<span style="color:#268bd2">escape</span>] <span style="color:#2aa198">&#39;minibuffer-keyboard-quit</span>)
+  (<span style="color:#b58900">with-current-buffer</span> <span style="color:#2aa198">&#34;*Messages*&#34;</span>
+    (<span style="color:#268bd2">evil-insert-state</span>))</code></pre></div>
+</div>
+
+		</div>
+
+		<div class="post-tags">
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
