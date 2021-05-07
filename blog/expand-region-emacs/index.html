@@ -1,151 +1,105 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
 <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Seleccionando de una manera mas inteligente en emacs - Rafael Leyva Ruiz</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Seleccionando de una manera mas inteligente en emacs" />
+<meta property="og:description" content="El otro día viendo la serie de videos de Myke Zamansky sobre emacs, habló sobre un paquete de emacs llamado expand-region. El funcionamiento es muy sencillo nos permite seleccionar con una sola pulsación en el atajo que definamos el texto entre dos delimitadores, ya sean parentesis, comillas, etc.
+Para usarlo lo primero es instalarlo, ejecutando en emacs M-x y escribiendo package-install RET expand-region RET donde RET es la tecla enter." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://rafaelleru.github.io/blog/expand-region-emacs/" />
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Seleccionando de una manera mas inteligente en emacs"/>
+<meta name="twitter:description" content="El otro día viendo la serie de videos de Myke Zamansky sobre emacs, habló sobre un paquete de emacs llamado expand-region. El funcionamiento es muy sencillo nos permite seleccionar con una sola pulsación en el atajo que definamos el texto entre dos delimitadores, ya sean parentesis, comillas, etc.
+Para usarlo lo primero es instalarlo, ejecutando en emacs M-x y escribiendo package-install RET expand-region RET donde RET es la tecla enter."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
-<meta name="description" content="Simple minimalist theme">
-<meta name="keywords" content="minimalist,blog,goa,hugo,developer">
+	<link rel="stylesheet" type="text/css" media="screen" href="http://rafaelleru.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://rafaelleru.github.io/css/main.css" />
 
-<base href="/">
-
-<title>Rafaelleru</title>
-
-<meta name="generator" content="Hugo 0.29" />
-
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="theme-color" content="#ffffff">
-
+	<script src="http://rafaelleru.github.io/js/feather.min.js"></script>
+	
+	<script src="http://rafaelleru.github.io/js/main.js"></script>
 </head>
-<body lang="en-us">
-<div class="container">
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="http://rafaelleru.github.io/">
+	<h1 class="site-title"><a href="http://rafaelleru.github.io/">Rafael Leyva Ruiz</a></h1>
+	<div class="site-description"><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/rafaelleru" title="Github"><i data-feather="github"></i></a><a href="https://www.linkedin.com/in/rafa-leyva-738228140/" title="Linkedin"><i data-feather="linkedin"></i></a><a href="https://www.linkedin.com/in/rafa-leyva-738228140/" title="Stack Overflow"><i data-feather="StackOverflow"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
 
 
-<header class="row text-left title">
-  <h1 class="title">Seleccionando de una manera mas inteligente en emacs</h1>
-</header>
-<section id="category-pane" class="row meta">
-  
-  <div class="col-md-12">
-    <h6 class="text-left meta">
-      PUBLISHED ON JAN 1, 0001
-      
-    </h6>
-  </div>
-  
-</section>
-<section id="content-pane" class="row">
-  <div class="col-md-12 text-justify content">
-    <p>El otro día viendo la serie de videos de <a href="http://cestlaz.github.io">Myke Zamansky</a> sobre emacs,
+		<div class="post-header">
+			<h1 class="title">Seleccionando de una manera mas inteligente en emacs</h1>
+			<div class="meta">Posted at &mdash; Jan 1, 0001</div>
+		</div>
+
+		<div class="markdown">
+			<p>El otro día viendo la serie de videos de <a href="http://cestlaz.github.io">Myke Zamansky</a> sobre emacs,
 habló sobre un paquete de emacs llamado expand-region. El
 funcionamiento es muy sencillo nos permite seleccionar con una sola
 pulsación en el atajo que definamos el texto entre dos delimitadores,
 ya sean parentesis, comillas, etc.</p>
-
 <p>Para usarlo lo primero es instalarlo, ejecutando en emacs <code>M-x</code> y
 escribiendo <code>package-install RET expand-region RET</code> donde RET es la
 tecla enter.</p>
+<p>Despues añadimos a nuestro <!-- raw HTML omitted -->init.el<!-- raw HTML omitted --> lo siguiente:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;expand-region</span>)
+(<span style="color:#268bd2">global-set-key</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-=&#34;</span>) <span style="color:#2aa198">&#39;er/expand-region</span>)
+</code></pre></div><p>En mi caso comence usando <code>C-ç</code> pero me resultaba extraño y lo cambie por <code>C-=</code>.</p>
 
-<p>Despues añadimos a nuestro <span class="underline">init.el</span> lo siguiente:</p>
+		</div>
 
-<pre><code class="language-emacs-lisp">(require 'expand-region)
-(global-set-key (kbd &quot;C-=&quot;) 'er/expand-region)
-</code></pre>
-
-<p>En mi caso comence usando <code>C-ç</code> pero me resultaba extraño y lo cambie por <code>C-=</code>.</p>
-
-  </div>
-</section>
-<section id="tag-pane" class="row meta">
-  
-  <div class="col-md-12">
-    <h6 class="text-right meta">
-      
-      
-      
-      TAGS:
-      
-      
-      <a class="meta" href="/tags/emacs">EMACS</a>
-      
-      
-      
-    </h6>
-  </div>
-  
-</section>
-
-
-
-
-
-
-
-
-<section id="menu-pane" class="row menu text-center">
-  
-  
-  
-  <span><a class="menu-item" href="/blog">blog</a></span>
-  
-  
-  <span><a class="menu-item" href="/blog/to_read_list_emacs/"> | next &gt;</a></span>
-  
-  
-  <h4 class="text-center"><a class="menu-item" href="/">home</a></h4>
-</section>
-
-
-
-<footer class="row text-center footer">
-  <hr />
-  
-  <h6 class="text-center copyright">© 2017 Rafael Leyva Ruiz. GPL 3.0.</h6>
-  
-  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
-  
-  
-</footer>
-
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/emacs">emacs</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
 </div>
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  
-
-<script type="text/javascript">
-hljs.initHighlightingOnLoad();
-</script>
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+<script>feather.replace()</script>
 </body>
 </html>
-
-

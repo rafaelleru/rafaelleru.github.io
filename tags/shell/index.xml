@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shell on Rafaelleru</title>
-    <link>/tags/shell/</link>
-    <description>Recent content in Shell on Rafaelleru</description>
+    <title>shell on Rafael Leyva Ruiz</title>
+    <link>http://rafaelleru.github.io/tags/shell/</link>
+    <description>Recent content in shell on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 May 2017 00:00:00 +0200</lastBuildDate>
     
-	<atom:link href="/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://rafaelleru.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Small-shell con eshell</title>
-      <link>/blog/small-shell/</link>
+      <link>http://rafaelleru.github.io/blog/small-shell/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0200</pubDate>
       
-      <guid>/blog/small-shell/</guid>
+      <guid>http://rafaelleru.github.io/blog/small-shell/</guid>
       <description>Hace tiempo me encontré con una idea que me encanto, poder abrir rapidamente una ventana en emacs que contenga un emulador de terminal, para hacer tareas rapidas en ella. Lo ví en el archivo de configuración de @vterron, la función era small-shell y lucía tal que así:
-(defun small-shell () (interactive) (split-window-vertically) (other-window 1) (shrink-window (- (window-height) 12)) (ansi-term))  Pero para mis necesidades se quedaba un poco corta, así que la modifiqué del siguiente modo.</description>
+(defun small-shell () (interactive) (split-window-vertically) (other-window 1) (shrink-window (- (window-height) 12)) (ansi-term)) Pero para mis necesidades se quedaba un poco corta, así que la modifiqué del siguiente modo.</description>
     </item>
     
   </channel>
