@@ -6,11 +6,7 @@
     <description>Recent content on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://rafaelleru.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0200</lastBuildDate><atom:link href="https://rafaelleru.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JSON magic with VIM</title>
       <link>https://rafaelleru.github.io/blog/json-magic-vim/</link>
@@ -46,7 +42,8 @@ En primer lugar, la funcionalidad como se entiende en un entorno de escritorio c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://rafaelleru.github.io/emacs/</guid>
-      <description>Credits to Harry R. Schwartz, @hrs, Zamansky. Informacion personal  (setq user-full-name &amp;#34;Rafael Leyva Ruiz&amp;#34; user-mail-address &amp;#34;rafaelleru95103@gmail.com&amp;#34; calendar-latitude 42.2 calendar-longitude -71.1 calendar-location-name &amp;#34;Madrid, ES&amp;#34;)  Madrid, ES  Gestion de paquetes melpa y cask  (require &amp;#39;cask &amp;#34;~/.cask/cask.el&amp;#34;) (cask-initialize) (require &amp;#39;pallet)  pallet  Use package  (unless (package-installed-p &amp;#39;use-package) (package-refresh-contents) (package-install &amp;#39;use-package))  Ajustes de la interfaz  Ocultar botones que no uso y la barra de scroll.</description>
+      <description>Credits to Harry R. Schwartz, @hrs, Zamansky.
+Informacion personal  (setq user-full-name &amp;#34;Rafael Leyva Ruiz&amp;#34; user-mail-address &amp;#34;rafaelleru95103@gmail.com&amp;#34; calendar-latitude 42.2 calendar-longitude -71.1 calendar-location-name &amp;#34;Madrid, ES&amp;#34;)  Madrid, ES    Gestion de paquetes melpa y cask  (require &amp;#39;cask &amp;#34;~/.cask/cask.el&amp;#34;) (cask-initialize) (require &amp;#39;pallet)  pallet  Use package  (unless (package-installed-p &amp;#39;use-package) (package-refresh-contents) (package-install &amp;#39;use-package))      Ajustes de la interfaz  Ocultar botones que no uso y la barra de scroll.</description>
     </item>
     
     <item>
