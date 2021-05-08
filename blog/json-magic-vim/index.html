@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>JSON magic with VIM - Rafael Leyva Ruiz</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="JSON magic with VIM" />
-<meta property="og:description" content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a web called JSON formatter and validator (There are hundreds of webs with the same objective around in the web) and then comparing it to his also prettified version using JSON diff." />
+<meta property="og:description" content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rafaelleru.github.io/blog/json-magic-vim/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-05-07T00:00:00&#43;02:00" />
@@ -12,7 +12,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JSON magic with VIM"/>
-<meta name="twitter:description" content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a web called JSON formatter and validator (There are hundreds of webs with the same objective around in the web) and then comparing it to his also prettified version using JSON diff."/>
+<meta name="twitter:description" content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff."/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://rafaelleru.github.io/css/normalize.css" />
@@ -64,7 +64,7 @@
 
 		<div class="markdown">
 			<h1 id="how-to-edit-compare-and-pretty-format-jsons-only-with-vim-and-maybe-some-other-cli-tool">How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool)</h1>
-<p>I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a web called <a href="https://jsonformatter.curiousconcept.com/">JSON formatter and validator</a> (There are hundreds of webs with the same objective around in the web) and then comparing it to his also prettified version using <a href="http://www.jsondiff.com/">JSON diff</a>. This consisted of 4 copy-paste operations all of them involving the mouse. This is slow and tedious and I knew it could be done with vim, but I was lazy about learning how to do it, but I finally did it. On the way, I also started playing around with vim tabs.</p>
+<p>I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called <a href="https://jsonformatter.curiousconcept.com/">JSON formatter and validator</a> (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using <a href="http://www.jsondiff.com/">JSON diff</a>. This consisted of 4 copy-paste operations all of them involving the mouse. This is slow and tedious and I knew it could be done with vim, but I was lazy about learning how to do it, but I finally did it. On the way, I also started playing around with vim tabs.</p>
 <p><img src="./img/05-07-2021/demo.gif" alt="Demo"></p>
 <h2 id="1-prettify-a-json-buffer-in-vim">1 Prettify a JSON buffer in VIM.</h2>
 <p>There are hundreds of plugins that can do that in VIM with one simple command, but I was already using jq as my goto JSON tool in the CLI and then I found that you can pipe a whole VIM buffer into any program that you like, so I ended up with the following command: <code>:%!jq '.'</code>.
@@ -83,7 +83,7 @@ The <code>%</code> symbol represents the content of the current buffer, <code>!<
 <li><code>:windo diffthis</code></li>
 <li><code>:tabcl</code> to close up the tab, once you have finished checking and editing your jsons.</li>
 </ul>
-<p>I will not use anymore tools like the 2 webs named at the begining of this article, I hope you neither, VIM
+<p>I will not use anymore tools like the 2 websites named at the begining of this article, I hope you neither, VIM
 can manage this and much more!</p>
 <p><a href="https://github.com/rafaelleru/dotfiles/blob/master/config/nvim/init.vim">My vim config</a></p>
 
