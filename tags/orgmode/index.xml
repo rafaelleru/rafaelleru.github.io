@@ -5,7 +5,11 @@
     <link>https://rafaelleru.github.io/tags/orgmode/</link>
     <description>Recent content in orgmode on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://rafaelleru.github.io/tags/orgmode/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    
+	<atom:link href="https://rafaelleru.github.io/tags/orgmode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Mantener una lista de articulos para leer con org-mode</title>
       <link>https://rafaelleru.github.io/blog/to_read_list_emacs/</link>
