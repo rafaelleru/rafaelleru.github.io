@@ -94,7 +94,7 @@ ansible_connection=local
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ansible-playbook -i ansible/hosts ansible/setup.yml
 </code></pre></div><h2 id="4-replacing-dotbot-with-ansible--the-dotfile-role">4. Replacing dotbot with Ansible → The dotfile role</h2>
 <p>Dotbot can do a lot of things, it even can run shell commands. I have been using dotbot without any issue for a long time but I never liked it completely, My install.conf.yml was a bit messy, probably it was my fault but I never felt completely comfortable with it.</p>
-<p>To replace the main task that dotbot did I created a file with some ansible tasks that create some syslinks from my config repository to my home directory. The complete file can be found here, and a simple task  from it looks like:</p>
+<p>To replace the main task that dotbot did I created a file with some ansible tasks that create some syslinks from my config repository to my home directory. The complete file can be found <a href="https://github.com/rafaelleru/dotfiles/blob/ansible/ansible/roles/dotfiles.yml">here</a>, and a simple task  from it looks like:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">- name: links nvim dotfiles/config dir in ~/.config
   file:
     src: <span style="color:#2aa198">&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/dotfiles/config/nvim&#34;</span>
