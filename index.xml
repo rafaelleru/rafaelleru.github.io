@@ -6,10 +6,20 @@
     <description>Recent content on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Jun 2021 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 24 Nov 2021 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://rafaelleru.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Managing dotfiles with Ansible</title>
+      <link>https://rafaelleru.github.io/blog/dotfiles-ansible-i/</link>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0100</pubDate>
+      
+      <guid>https://rafaelleru.github.io/blog/dotfiles-ansible-i/</guid>
+      <description>1. Why Ansible Ansible is a standard in the industry to automate deployments and provision virtual machines in the DevOps landscape. The main reason to use ansible to manage my dotfiles was to learn how to use it.
+Yes, Ansible seems to be overkill for this purpose. Dotbot seems to be a much smaller tool. Also, Greg Hurrel has created a config framework called fig, bothered for the size and bloat that Ansible represents.</description>
+    </item>
     
     <item>
       <title>Toggle vim QuickFix list, the right way</title>
