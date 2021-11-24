@@ -84,7 +84,7 @@ archlinux_docker
 
 [docker:vars]
 ansible_connection=docker
-</code></pre></div><p>Running Ansible from my host to each of ## 3dockers seemed a reasonable approach, but Ansible takes the $HOME variable from the localhost instead of taking it from each target and it ended up causing some troubles, so I ended up running it locally in each container, also is how I will run it in each new configured machine so it makes sense.  For that my Ansible hosts looks like this:</p>
+</code></pre></div><p>Running Ansible from my host to each of 3 dockers seemed a reasonable approach, but Ansible takes the $HOME variable from the localhost instead of taking it from each target and it ended up causing some troubles, so I ended up running it locally in each container, also is how I will run it in each new configured machine so it makes sense.  For that my Ansible hosts looks like this:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[local]
 localhost
 
@@ -114,15 +114,15 @@ ansible_connection=local
   loop:
     - jq
 		- ...
-</code></pre></div><p>This task will iterate the items in the loop and install them if they are not present in the system. Initially, I wrote more than ## 2 tasks for this purpose, please don&rsquo;t be like me, read the docs, Ansible has you covered for this kind of repetitive task with loops and conditional tasks.</p>
-<p>To be able to run each task file depending on the OS I use ## 3conditional imports in the main playbook that check the OS family to use the right package manager:</p>
+</code></pre></div><p>This task will iterate the items in the loop and install them if they are not present in the system. Initially, I wrote more than  2 tasks for this purpose, please don&rsquo;t be like me, read the docs, Ansible has you covered for this kind of repetitive task with loops and conditional tasks.</p>
+<p>To be able to run each task file depending on the OS I use 3 conditional imports in the main playbook that check the OS family to use the right package manager:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">- name: Install apt packages
     import_tasks: roles/apt.yml
     when: ansible_facts<span style="color:#719e07">[</span><span style="color:#2aa198">&#39;os_family&#39;</span><span style="color:#719e07">]</span> <span style="color:#719e07">==</span> <span style="color:#2aa198">&#34;Debian&#34;</span>
 </code></pre></div><p>You can check your OS family in this post: <a href="https://techviewleo.com/list-of-ansible-os-family-distributions-facts/">https://techviewleo.com/list-of-ansible-os-family-distributions-facts/</a></p>
-<p>I still have to maintain ## 3lists of packages and that sucks but that isn&rsquo;t a problem with Ansible, is my problem because I use 3 Linux distros&hellip;</p>
+<p>I still have to maintain 3 lists of packages and that sucks but that isn&rsquo;t a problem with Ansible, is my problem because I use 3 Linux distros&hellip;</p>
 <h2 id="6-configuring-a-new-fresh-machine-from-scratch">6. Configuring a new fresh machine from scratch.</h2>
-<p>With all the previous steps set configuring a new PC now consists of ## 3steps (4 if you are using ubuntu and apt&hellip; 😒)</p>
+<p>With all the previous steps set configuring a new PC now consists of 3 steps (4 if you are using ubuntu and apt&hellip; 😒)</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-update
 $ sudo apt install ansible git
 $ git clone https://github.com/rafaelleru/dotfiles <span style="color:#719e07">&amp;&amp;</span> <span style="color:#b58900">cd</span> dotfiles
