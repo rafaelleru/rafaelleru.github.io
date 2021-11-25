@@ -76,7 +76,7 @@ Yes, Ansible seems to be overkill for this purpose. Dotbot seems to be a much sm
 <p>Dotbot is pretty cool, and so useful but It is so simple. Building packages, setting up complicated environments as mine becomes a mess, I had to use custom scripts setting up things before and after dotbot, calling scripts from dotbot itself&hellip;</p>
 <p>Ansible otherwise is a tool that was created to setup and maintain complex environments so doing this becomes in a much simpler task.</p>
 <h2 id="3-testing-the-installation-without-breaking-anything">3. Testing the installation without breaking anything.</h2>
-<p>For the shake of science I decided to tests this migration using docker (It bothers me a lot to create and configure virtual machines) so I downloaded an image for each OS that I use to run, and I created a file to store the hosts to tests.</p>
+<p>For the shake of science I decided to test this migration using docker (It bothers me a lot to create and configure virtual machines) so I downloaded an image for each OS that I use to run, and I created a file to store the hosts to teso.</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[docker]
 ubuntu_docker
 fedora_docker
@@ -103,8 +103,8 @@ ansible_connection=local
     force: yes
 </code></pre></div><p>In the future maybe I can replace the location of the dotfiles repository to be <code>pwd</code> since right now I am cloning my repository twice.</p>
 <h2 id="5-installing-awesome-packages-with-ansible">5. Installing awesome packages with ansible</h2>
-<p>With dotbot a task that always bothered me a lot was to install all the packages that I use manually, and since Ansible is a tool for provision machines it comes with tools to do this automatically.</p>
-<p>I created a file with a task for each of the system packages that my distributions uses. The one for dnf looks like this:</p>
+<p>With dotbot a task that always bothered me a lot was to install all the packages that I use manually, and since Ansible is a tool to provision machines it comes with tools to do this automatically.</p>
+<p>I created a file with a task for each of the system packages that my distribution uses. The one for dnf looks like this:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">---
 - name: Install apt packages
   tags: dnf
