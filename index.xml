@@ -6,10 +6,20 @@
     <description>Recent content on Rafael Leyva Ruiz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Nov 2021 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://rafaelleru.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Running DWM on hdpi displays</title>
+      <link>https://rafaelleru.github.io/wiki/hdpi/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://rafaelleru.github.io/wiki/hdpi/</guid>
+      <description>Dwm seems to have some problems with high DPI displays, to solve it write this into ~/.Xresources
+Xft.dpi: 144 This will fix the small dwm and apps painting for screens with 3840x2160 resolution.</description>
+    </item>
     
     <item>
       <title>Managing dotfiles with Ansible</title>
