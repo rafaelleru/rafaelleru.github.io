@@ -1,194 +1,83 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Toggle vim QuickFix list, the right way - Rafael Leyva Ruiz</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="Toggle vim QuickFix list, the right way" />
-<meta property="og:description" content="The Primeagean has a great video talking about all the great things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following code and paste it to my config.
-let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(global) if a:global if g:the_primeagen_qf_g == 1 let g:the_primeagen_qf_g = 0 cclose else let g:the_primeagen_qf_g = 1 copen end else if g:the_primeagen_qf_l == 1 let g:the_primeagen_qf_l = 0 lclose else let g:the_primeagen_qf_l = 1 lopen end endif endfun This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://rafaelleru.github.io/blog/quickfix-autocomands/" />
-<meta property="article:published_time" content="2021-06-26T00:00:00+02:00" />
-<meta property="article:modified_time" content="2021-06-26T00:00:00+02:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Toggle vim QuickFix list, the right way"/>
-<meta name="twitter:description" content="The Primeagean has a great video talking about all the great things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following code and paste it to my config.
-let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(global) if a:global if g:the_primeagen_qf_g == 1 let g:the_primeagen_qf_g = 0 cclose else let g:the_primeagen_qf_g = 1 copen end else if g:the_primeagen_qf_l == 1 let g:the_primeagen_qf_l = 0 lclose else let g:the_primeagen_qf_l = 1 lopen end endif endfun This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function."/>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
-
-	<link rel="stylesheet" type="text/css" media="screen" href="https://rafaelleru.github.io/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://rafaelleru.github.io/css/main.css" />
-
-	<script src="https://rafaelleru.github.io/js/feather.min.js"></script>
-	
-	<script src="https://rafaelleru.github.io/js/main.js"></script>
-</head>
-
-<body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://rafaelleru.github.io/">
-	<h1 class="site-title"><a href="https://rafaelleru.github.io/">Rafael Leyva Ruiz</a></h1>
-	<div class="site-description"><h2>Python backend developer. Vim nerd.</h2><nav class="nav social">
-			<ul class="flat"><a href="https://github.com/rafaelleru" title="Github"><i data-feather="github"></i></a><a href="https://www.linkedin.com/in/rafa-leyva-738228140/" title="Linkedin"><i data-feather="linkedin"></i></a><a href="https://stackoverflow.com/users/3795926/rafaelleru" title="Stack Overflow"><i data-feather="layers"></i></a><a href="https://twitter.com/rafaelleru" title="Twitter"><i data-feather="twitter"></i></a></ul>
-		</nav>
-	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/blog">Posts</a>
-			</li>
-			
-			<li>
-				<a href="/wiki">Wiki</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
-
-
-		<div class="post-header">
-			<h1 class="title">Toggle vim QuickFix list, the right way</h1>
-			<div class="meta">Posted at &mdash; Jun 26, 2021</div>
-		</div>
-
-		<div class="markdown">
-			<p>The Primeagean has a great <a href="https://www.youtube.com/watch?v=IoyW8XYGqjM">video</a> talking about all the great
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Toggle vim QuickFix list, the right way - Rafael Leyva Ruiz</title><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:title" content="Toggle vim QuickFix list, the right way"><meta property="og:description" content="The Primeagean has a great video talking about all the great things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following code and paste it to my config.
+let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(global) if a:global if g:the_primeagen_qf_g == 1 let g:the_primeagen_qf_g = 0 cclose else let g:the_primeagen_qf_g = 1 copen end else if g:the_primeagen_qf_l == 1 let g:the_primeagen_qf_l = 0 lclose else let g:the_primeagen_qf_l = 1 lopen end endif endfun This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function."><meta property="og:type" content="article"><meta property="og:url" content="https://rafaelleru.github.io/blog/quickfix-autocomands/"><meta property="article:published_time" content="2021-06-26T00:00:00+02:00"><meta property="article:modified_time" content="2021-06-26T00:00:00+02:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Toggle vim QuickFix list, the right way"><meta name=twitter:description content="The Primeagean has a great video talking about all the great things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following code and paste it to my config.
+let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(global) if a:global if g:the_primeagen_qf_g == 1 let g:the_primeagen_qf_g = 0 cclose else let g:the_primeagen_qf_g = 1 copen end else if g:the_primeagen_qf_l == 1 let g:the_primeagen_qf_l = 0 lclose else let g:the_primeagen_qf_l = 1 lopen end endif endfun This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function."><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css><script src=https://rafaelleru.github.io/js/feather.min.js></script><script src=https://rafaelleru.github.io/js/main.js></script></head><body><div class="container wrapper post"><div class=header><base href=https://rafaelleru.github.io/><h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1><div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social"><ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul></nav></div><nav class=nav><ul class=flat><li><a href=/>Home</a></li><li><a href=/blog>Posts</a></li><li><a href=/wiki>Wiki</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li></ul></nav></div><div class=post-header><h1 class=title>Toggle vim QuickFix list, the right way</h1><div class=meta>Posted at &mdash; Jun 26, 2021</div></div><div class=markdown><p>The Primeagean has a great <a href="https://www.youtube.com/watch?v=IoyW8XYGqjM">video</a> talking about all the great
 things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following
-code and paste it to my <a href="https://github.com/rafaelleru/dotfiles/tree/master/config/nvim">config</a>.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-viml" data-lang="viml"><span style="color:#719e07">let</span> g:the_primeagen_qf_l = <span style="color:#2aa198">0</span>
-<span style="color:#719e07">let</span> g:the_primeagen_qf_g = <span style="color:#2aa198">0</span>
+code and paste it to my <a href=https://github.com/rafaelleru/dotfiles/tree/master/config/nvim>config</a>.</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-viml data-lang=viml><span style=color:#719e07>let</span> g:the_primeagen_qf_l = <span style=color:#2aa198>0</span>
+<span style=color:#719e07>let</span> g:the_primeagen_qf_g = <span style=color:#2aa198>0</span>
 
-<span style="color:#719e07">fun</span>! ToggleQFList(global)
-    <span style="color:#719e07">if</span> a:global
-        <span style="color:#719e07">if</span> g:the_primeagen_qf_g == <span style="color:#2aa198">1</span>
-            <span style="color:#719e07">let</span> g:the_primeagen_qf_g = <span style="color:#2aa198">0</span>
+<span style=color:#719e07>fun</span>! ToggleQFList(global)
+    <span style=color:#719e07>if</span> a:global
+        <span style=color:#719e07>if</span> g:the_primeagen_qf_g == <span style=color:#2aa198>1</span>
+            <span style=color:#719e07>let</span> g:the_primeagen_qf_g = <span style=color:#2aa198>0</span>
             cclose
-        <span style="color:#719e07">else</span>
-            <span style="color:#719e07">let</span> g:the_primeagen_qf_g = <span style="color:#2aa198">1</span>
+        <span style=color:#719e07>else</span>
+            <span style=color:#719e07>let</span> g:the_primeagen_qf_g = <span style=color:#2aa198>1</span>
             copen
         end
-    <span style="color:#719e07">else</span>
-        <span style="color:#719e07">if</span> g:the_primeagen_qf_l == <span style="color:#2aa198">1</span>
-            <span style="color:#719e07">let</span> g:the_primeagen_qf_l = <span style="color:#2aa198">0</span>
+    <span style=color:#719e07>else</span>
+        <span style=color:#719e07>if</span> g:the_primeagen_qf_l == <span style=color:#2aa198>1</span>
+            <span style=color:#719e07>let</span> g:the_primeagen_qf_l = <span style=color:#2aa198>0</span>
             lclose
-        <span style="color:#719e07">else</span>
-            <span style="color:#719e07">let</span> g:the_primeagen_qf_l = <span style="color:#2aa198">1</span>
+        <span style=color:#719e07>else</span>
+            <span style=color:#719e07>let</span> g:the_primeagen_qf_l = <span style=color:#2aa198>1</span>
             lopen
         end
-    <span style="color:#719e07">endif</span>
+    <span style=color:#719e07>endif</span>
 endfun
 </code></pre></div><p>This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function. In my
 case, I mapped <code>CTRL-q</code> to open the global QuickFix list and <code>,-q</code> to open the local QuickFix list, because <code>,</code>
-is my local leader.</p>
-<h2 id="autocomands-where-the-fun-part-begins">Autocomands, where the fun part begins.</h2>
-<p>With the previous code, I was able to jump both across my projects and through a file using Quickfix lists. For
-example <code>:Rg</code> will populate the global QuickFix list with the occurrences that <code>vimgrep</code> find across the project.</p>
-<p>I thought that a useful way to use local lists would be to populate it with linting and code errors and <code>neovim</code>
-new LSP capabilities allow us to do it  by using <code>:lua vim.lsp.diagnostic.set_loclist()</code>. When called you will
+is my local leader.</p><h2 id=autocomands-where-the-fun-part-begins>Autocomands, where the fun part begins.</h2><p>With the previous code, I was able to jump both across my projects and through a file using Quickfix lists. For
+example <code>:Rg</code> will populate the global QuickFix list with the occurrences that <code>vimgrep</code> find across the project.</p><p>I thought that a useful way to use local lists would be to populate it with linting and code errors and <code>neovim</code>
+new LSP capabilities allow us to do it by using <code>:lua vim.lsp.diagnostic.set_loclist()</code>. When called you will
 get a local QuickFix list populated with all the LSP errors and warnings in the buffer, but I did not like the
-idea of setting the Locallist manually each time. To avoid that nvim provides the event <code>LspDiagnosticsChanged</code>.</p>
-<p>Using <code>LspDiagnosticsChanged</code> we can set an autocomand that will populate the Locallist automatically per file.
-The code is:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-viml" data-lang="viml">augroup locallist
+idea of setting the Locallist manually each time. To avoid that nvim provides the event <code>LspDiagnosticsChanged</code>.</p><p>Using <code>LspDiagnosticsChanged</code> we can set an autocomand that will populate the Locallist automatically per file.
+The code is:</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-viml data-lang=viml>augroup locallist
     autocmd!
-<span style="color:#586e75">    &#34; Populate locallist with lsp diagnostics automatically </span>
+<span style=color:#586e75>    &#34; Populate locallist with lsp diagnostics automatically </span>
     autocmd User LspDiagnosticsChanged :lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
 augroup END
-</code></pre></div><p>To tell nvim to do it in background we need to pass the <code>{open_loclist = false}</code>  parameter.</p>
-<h2 id="fixing-toggleqflist">Fixing ToggleQFList</h2>
-<p>Et voila! We have 2 use cases when we can populate QuickFix lists and we have 2 cool shortcuts to quickly open
-and close those windows. Well&hellip;  the ToggleQFList presents a problem, if you open any of the QuickFix lists
+</code></pre></div><p>To tell nvim to do it in background we need to pass the <code>{open_loclist = false}</code> parameter.</p><h2 id=fixing-toggleqflist>Fixing ToggleQFList</h2><p>Et voila! We have 2 use cases when we can populate QuickFix lists and we have 2 cool shortcuts to quickly open
+and close those windows. Well&mldr; the ToggleQFList presents a problem, if you open any of the QuickFix lists
 using another command rather than calling our function the variables <code>g:the_primeagen_qf_l</code> and <code>g:the_primeagen_qf_g</code>
-will not be updated.  To fix that behavior we will use again autocomands!</p>
-<p>We can set an autocomand that will be called each time a <code>quickfix</code> window will be created and update there our
-variables.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-viml" data-lang="viml">augroup fixlist
+will not be updated. To fix that behavior we will use again autocomands!</p><p>We can set an autocomand that will be called each time a <code>quickfix</code> window will be created and update there our
+variables.</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-viml data-lang=viml>augroup fixlist
     autocmd!
     autocmd BufWinEnter quickfix call SetQFControlVariable()
     autocmd BufWinLeave * call UnsetQFControlVariable()
 augroup END
 </code></pre></div><p>We do the same when leaving a window to unset the variable, but for any reason, we need to use <code>*</code> instead of
-<code>quicxfix</code> when using <code>BufWinLeave</code>.</p>
-<p>The functions that control now  <code>g:the_primeagen_qf_l</code> and <code>g:the_primeagen_qf_g</code> are <code>SetQFControlVariable()</code>
+<code>quicxfix</code> when using <code>BufWinLeave</code>.</p><p>The functions that control now <code>g:the_primeagen_qf_l</code> and <code>g:the_primeagen_qf_g</code> are <code>SetQFControlVariable()</code>
 and <code>UnsetQFControlVariable()</code>. Those functions check the current vim window type and set our control variables
-as needed.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-viml" data-lang="viml"><span style="color:#719e07">fun</span>! SetQFControlVariable()
-    <span style="color:#719e07">if</span> getwininfo(win_getid())[<span style="color:#2aa198">0</span>][<span style="color:#2aa198">&#39;loclist&#39;</span>] == <span style="color:#2aa198">1</span>
-        <span style="color:#719e07">let</span> g:the_primeagen_qf_l = <span style="color:#2aa198">1</span>
-    <span style="color:#719e07">else</span>
-        <span style="color:#719e07">let</span> g:the_primeagen_qf_g = <span style="color:#2aa198">1</span>
+as needed.</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-viml data-lang=viml><span style=color:#719e07>fun</span>! SetQFControlVariable()
+    <span style=color:#719e07>if</span> getwininfo(win_getid())[<span style=color:#2aa198>0</span>][<span style=color:#2aa198>&#39;loclist&#39;</span>] == <span style=color:#2aa198>1</span>
+        <span style=color:#719e07>let</span> g:the_primeagen_qf_l = <span style=color:#2aa198>1</span>
+    <span style=color:#719e07>else</span>
+        <span style=color:#719e07>let</span> g:the_primeagen_qf_g = <span style=color:#2aa198>1</span>
     end
 endfun
 
-<span style="color:#719e07">fun</span>! UnsetQFControlVariable()
-    <span style="color:#719e07">if</span> getwininfo(win_getid())[<span style="color:#2aa198">0</span>][<span style="color:#2aa198">&#39;loclist&#39;</span>] == <span style="color:#2aa198">1</span>
-        <span style="color:#719e07">let</span> g:the_primeagen_qf_l = <span style="color:#2aa198">0</span>
-    <span style="color:#719e07">else</span>
-        <span style="color:#719e07">let</span> g:the_primeagen_qf_g = <span style="color:#2aa198">0</span>
+<span style=color:#719e07>fun</span>! UnsetQFControlVariable()
+    <span style=color:#719e07>if</span> getwininfo(win_getid())[<span style=color:#2aa198>0</span>][<span style=color:#2aa198>&#39;loclist&#39;</span>] == <span style=color:#2aa198>1</span>
+        <span style=color:#719e07>let</span> g:the_primeagen_qf_l = <span style=color:#2aa198>0</span>
+    <span style=color:#719e07>else</span>
+        <span style=color:#719e07>let</span> g:the_primeagen_qf_g = <span style=color:#2aa198>0</span>
     end
 endfun
 </code></pre></div><p>Now the <code>ToggleQFList</code> do not need to control the window only call <code>cclose</code>, <code>ccopen</code>, <code>lclose</code> or <code>lopen</code>
-when we call it, so finally <code>ToggleQFList</code> looks like this:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-viml" data-lang="viml"><span style="color:#719e07">fun</span>! ToggleQFList(global)
-    <span style="color:#719e07">if</span> a:global
-        <span style="color:#719e07">if</span> g:the_primeagen_qf_g == <span style="color:#2aa198">1</span>
+when we call it, so finally <code>ToggleQFList</code> looks like this:</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-viml data-lang=viml><span style=color:#719e07>fun</span>! ToggleQFList(global)
+    <span style=color:#719e07>if</span> a:global
+        <span style=color:#719e07>if</span> g:the_primeagen_qf_g == <span style=color:#2aa198>1</span>
             cclose
-        <span style="color:#719e07">else</span>
+        <span style=color:#719e07>else</span>
             copen
         end
-    <span style="color:#719e07">else</span>
-        echo <span style="color:#2aa198">&#39;toggle locallist&#39;</span>
-        <span style="color:#719e07">if</span> g:the_primeagen_qf_l == <span style="color:#2aa198">1</span>
+    <span style=color:#719e07>else</span>
+        echo <span style=color:#2aa198>&#39;toggle locallist&#39;</span>
+        <span style=color:#719e07>if</span> g:the_primeagen_qf_l == <span style=color:#2aa198>1</span>
             lclose
-        <span style="color:#719e07">else</span>
+        <span style=color:#719e07>else</span>
             lopen
         end
-    <span style="color:#719e07">endif</span>
+    <span style=color:#719e07>endif</span>
 endfun
-</code></pre></div><p>I hope it helps!</p>
-
-		</div>
-
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/vim">vim</a></li>
-								
-								<li><a href="/tags/quickfix-list">quickfix-list</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
-</div>
-
-
-
-<script>feather.replace()</script>
-</body>
-</html>
+</code></pre></div><p>I hope it helps!</p></div><div class=post-tags><nav class="nav tags"><ul class=flat><li><a href=/tags/vim>vim</a></li><li><a href=/tags/quickfix-list>quickfix-list</a></li></ul></nav></div></div><div class="footer wrapper"><nav class=nav><div><a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></nav></div><script>feather.replace()</script></body></html>

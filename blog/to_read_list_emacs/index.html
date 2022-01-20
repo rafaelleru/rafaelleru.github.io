@@ -1,141 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Mantener una lista de articulos para leer con org-mode - Rafael Leyva Ruiz</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="Mantener una lista de articulos para leer con org-mode" />
-<meta property="og:description" content="Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
-Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://rafaelleru.github.io/blog/to_read_list_emacs/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mantener una lista de articulos para leer con org-mode"/>
-<meta name="twitter:description" content="Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
-Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea."/>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
-
-	<link rel="stylesheet" type="text/css" media="screen" href="https://rafaelleru.github.io/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://rafaelleru.github.io/css/main.css" />
-
-	<script src="https://rafaelleru.github.io/js/feather.min.js"></script>
-	
-	<script src="https://rafaelleru.github.io/js/main.js"></script>
-</head>
-
-<body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://rafaelleru.github.io/">
-	<h1 class="site-title"><a href="https://rafaelleru.github.io/">Rafael Leyva Ruiz</a></h1>
-	<div class="site-description"><h2>Python backend developer. Vim nerd.</h2><nav class="nav social">
-			<ul class="flat"><a href="https://github.com/rafaelleru" title="Github"><i data-feather="github"></i></a><a href="https://www.linkedin.com/in/rafa-leyva-738228140/" title="Linkedin"><i data-feather="linkedin"></i></a><a href="https://stackoverflow.com/users/3795926/rafaelleru" title="Stack Overflow"><i data-feather="layers"></i></a><a href="https://twitter.com/rafaelleru" title="Twitter"><i data-feather="twitter"></i></a></ul>
-		</nav>
-	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/blog">Posts</a>
-			</li>
-			
-			<li>
-				<a href="/wiki">Wiki</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
-
-
-		<div class="post-header">
-			<h1 class="title">Mantener una lista de articulos para leer con org-mode</h1>
-			<div class="meta">Posted at &mdash; Jan 1, 0001</div>
-		</div>
-
-		<div class="markdown">
-			<p>Orgmode es le leche, no creo que pueda encontrar una frase mejor para
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Mantener una lista de articulos para leer con org-mode - Rafael Leyva Ruiz</title><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:title" content="Mantener una lista de articulos para leer con org-mode"><meta property="og:description" content="Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
+Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea."><meta property="og:type" content="article"><meta property="og:url" content="https://rafaelleru.github.io/blog/to_read_list_emacs/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Mantener una lista de articulos para leer con org-mode"><meta name=twitter:description content="Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
+Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea."><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css><script src=https://rafaelleru.github.io/js/feather.min.js></script><script src=https://rafaelleru.github.io/js/main.js></script></head><body><div class="container wrapper post"><div class=header><base href=https://rafaelleru.github.io/><h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1><div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social"><ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul></nav></div><nav class=nav><ul class=flat><li><a href=/>Home</a></li><li><a href=/blog>Posts</a></li><li><a href=/wiki>Wiki</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li></ul></nav></div><div class=post-header><h1 class=title>Mantener una lista de articulos para leer con org-mode</h1><div class=meta>Posted at &mdash; Jan 1, 0001</div></div><div class=markdown><p>Orgmode es le leche, no creo que pueda encontrar una frase mejor para
 empezar este post. Desde hace tiempo lo uso para mantener mi lista de
-TODOs, gestionar mi calendario, etc.</p>
-<p>Aparte de lo comentado anteriormente mentengo tambien una lista de
+TODOs, gestionar mi calendario, etc.</p><p>Aparte de lo comentado anteriormente mentengo tambien una lista de
 enlaces y articulos que leer, la almaceno en un archivo llamado
 <code>to-read.org</code> y hasta hace poco para abrirlo tenía que abrir emacs,
 abrir el archivo y empezar a navegar por los enlaces, pero hace unos
 días se me ocurrió una idea. Gracias a los múltiples backend para
 exportar que tiene orgmode puedo generar un html de dicho archivo y
 visitarlo desde mi navegador, pero no era cómodo generar el html cada
-vez que añadia un enlace.</p>
-<p>Para automatizarlo simplemente he creado una función en mi <a href="https://github.com/rafaelleru/emacs_configuration">archivo de
+vez que añadia un enlace.</p><p>Para automatizarlo simplemente he creado una función en mi <a href=https://github.com/rafaelleru/emacs_configuration>archivo de
 configuración</a> que detecta cuando modifico <code>to-read.org</code> y automaticamente
 crea el html, después simplemente añadimos un hook a org-mode para
 que cada vez que se guarde el archivo genere la web que queremos
-visitar desde el navegador.</p>
-<p>La función es la siguiente:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#b58900">defun</span> <span style="color:#268bd2">org-mode-export-hook</span>()
-  <span style="color:#2aa198">&#34;Auto export html&#34;</span>
-  (<span style="color:#b58900">when</span> (<span style="color:#268bd2">eq</span> <span style="color:#268bd2">major-mode</span> <span style="color:#2aa198">&#39;org-mode</span>)
-    (<span style="color:#b58900">when</span> (<span style="color:#268bd2">equal</span> <span style="color:#268bd2">buffer-file-name</span> <span style="color:#2aa198">&#34;/home/rafa/org/to-read.org&#34;</span>)
-     (<span style="color:#268bd2">org-twbs-export-to-html</span> <span style="color:#cb4b16">t</span>))))
+visitar desde el navegador.</p><p>La función es la siguiente:</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-emacs-lisp data-lang=emacs-lisp>(<span style=color:#b58900>defun</span> <span style=color:#268bd2>org-mode-export-hook</span>()
+  <span style=color:#2aa198>&#34;Auto export html&#34;</span>
+  (<span style=color:#b58900>when</span> (<span style=color:#268bd2>eq</span> <span style=color:#268bd2>major-mode</span> <span style=color:#2aa198>&#39;org-mode</span>)
+    (<span style=color:#b58900>when</span> (<span style=color:#268bd2>equal</span> <span style=color:#268bd2>buffer-file-name</span> <span style=color:#2aa198>&#34;/home/rafa/org/to-read.org&#34;</span>)
+     (<span style=color:#268bd2>org-twbs-export-to-html</span> <span style=color:#cb4b16>t</span>))))
 </code></pre></div><p>Y su cometido es detectar que está en un buffer de tipo <code>org-mode</code>, y
 si el nombre del archivo que está abierto en el buffer es el índice de
-enlaces para leer exportar directamente a html dicho archivo.</p>
-<p>Para que el html no quede tan soso en vez de usar el comando
+enlaces para leer exportar directamente a html dicho archivo.</p><p>Para que el html no quede tan soso en vez de usar el comando
 <code>org-html-export-to-html</code> he instalado el paquete <code>ox-twbs</code>. Para ello
 añadimos lo siguiente a nuestro archivo de configuración (tambien
-podemos instalarlo con <code>M-x install-package RET ox-twbs RET</code>)</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#b58900">use-package</span> <span style="color:#268bd2">ox-twbs</span>
-  <span style="color:#b58900">:ensure</span> <span style="color:#cb4b16">t</span>)
+podemos instalarlo con <code>M-x install-package RET ox-twbs RET</code>)</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-emacs-lisp data-lang=emacs-lisp>(<span style=color:#b58900>use-package</span> <span style=color:#268bd2>ox-twbs</span>
+  <span style=color:#b58900>:ensure</span> <span style=color:#cb4b16>t</span>)
 </code></pre></div><p><code>ox-twbs</code> nos exportar un html con un css dado, y lo hace mejor que el que
-integra <code>org-mode</code> por defecto.</p>
-<p>Por último añadimos el hook para org-mode que llame a nuestra función
-cada vez que guardemos dicho archivo.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;after-save-hook</span> <span style="color:#2aa198">&#39;org-mode-export-hook</span>)
+integra <code>org-mode</code> por defecto.</p><p>Por último añadimos el hook para org-mode que llame a nuestra función
+cada vez que guardemos dicho archivo.</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-emacs-lisp data-lang=emacs-lisp>(<span style=color:#268bd2>add-hook</span> <span style=color:#2aa198>&#39;after-save-hook</span> <span style=color:#2aa198>&#39;org-mode-export-hook</span>)
 </code></pre></div><p>Luego solo tenemos que abrir to-read.html en el navegador y si lo
-vamos a visitar mucho añadirlo como marcador.</p>
-<h2 id="edit">EDIT:</h2>
-<p>Tras ver que no funcionaba como esperaba consulte
-<a href="http://emacs.stackexchange.com/">http://emacs.stackexchange.com/</a> y parece ser que para comparar no hay
-que usar <code>eq</code> sino <code>equal</code>.</p>
-
-		</div>
-
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/emacs">emacs,</a></li>
-								
-								<li><a href="/tags/orgmode">orgmode</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
-</div>
-
-
-
-<script>feather.replace()</script>
-</body>
-</html>
+vamos a visitar mucho añadirlo como marcador.</p><h2 id=edit>EDIT:</h2><p>Tras ver que no funcionaba como esperaba consulte
+<a href=http://emacs.stackexchange.com/>http://emacs.stackexchange.com/</a> y parece ser que para comparar no hay
+que usar <code>eq</code> sino <code>equal</code>.</p></div><div class=post-tags><nav class="nav tags"><ul class=flat><li><a href=/tags/emacs>emacs,</a></li><li><a href=/tags/orgmode>orgmode</a></li></ul></nav></div></div><div class="footer wrapper"><nav class=nav><div><a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></nav></div><script>feather.replace()</script></body></html>
