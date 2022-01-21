@@ -1,7 +1,107 @@
-<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Linux commands - Rafael Leyva Ruiz</title><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:title" content="Linux commands"><meta property="og:description" content="Get the real size of a folder ls returns 4K as size for folders. To get the total size for a folder and his content run:
-du -h --max-depth=0 <directory> If you want to obtain the size of the content inside the directory:
-du -h --max-depth=1 <directory>"><meta property="og:type" content="article"><meta property="og:url" content="https://rafaelleru.github.io/wiki/useful_commands/"><meta property="article:published_time" content="2021-06-15T00:00:00+02:00"><meta property="article:modified_time" content="2021-06-15T00:00:00+02:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux commands"><meta name=twitter:description content="Get the real size of a folder ls returns 4K as size for folders. To get the total size for a folder and his content run:
-du -h --max-depth=0 <directory> If you want to obtain the size of the content inside the directory:
-du -h --max-depth=1 <directory>"><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css><script src=https://rafaelleru.github.io/js/feather.min.js></script><script src=https://rafaelleru.github.io/js/main.js></script></head><body><div class="container wrapper post"><div class=header><base href=https://rafaelleru.github.io/><h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1><div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social"><ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul></nav></div><nav class=nav><ul class=flat><li><a href=/>Home</a></li><li><a href=/blog>Posts</a></li><li><a href=/wiki>Wiki</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li></ul></nav></div><div class=post-header><h1 class=title>Linux commands</h1><div class=meta>Posted at &mdash; Jun 15, 2021</div></div><div class=markdown><h2 id=get-the-real-size-of-a-folder>Get the real size of a folder</h2><p><code>ls</code> returns 4K as size for folders. To get the total size for a folder and his content run:</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>du -h --max-depth=0 &lt;directory&gt;
-</code></pre></div><p>If you want to obtain the size of the content inside the directory:</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>du -h --max-depth=1 &lt;directory&gt;
-</code></pre></div></div><div class=post-tags><nav class="nav tags"><ul class=flat><li><a href=/tags/commandline>commandline</a></li><li><a href=/tags/wiki>wiki</a></li></ul></nav></div></div><div class="footer wrapper"><nav class=nav><div><a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></nav></div><script>feather.replace()</script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Linux commands - Rafael Leyva Ruiz</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Linux commands" />
+<meta property="og:description" content="Get the real size of a folder ls returns 4K as size for folders. To get the total size for a folder and his content run:
+du -h --max-depth=0 &lt;directory&gt; If you want to obtain the size of the content inside the directory:
+du -h --max-depth=1 &lt;directory&gt; " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rafaelleru.github.io/wiki/useful_commands/" />
+<meta property="article:published_time" content="2021-06-15T00:00:00+02:00" />
+<meta property="article:modified_time" content="2021-06-15T00:00:00+02:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux commands"/>
+<meta name="twitter:description" content="Get the real size of a folder ls returns 4K as size for folders. To get the total size for a folder and his content run:
+du -h --max-depth=0 &lt;directory&gt; If you want to obtain the size of the content inside the directory:
+du -h --max-depth=1 &lt;directory&gt; "/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://rafaelleru.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://rafaelleru.github.io/css/main.css" />
+
+	<script src="https://rafaelleru.github.io/js/feather.min.js"></script>
+	
+	<script src="https://rafaelleru.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://rafaelleru.github.io/">
+	<h1 class="site-title"><a href="https://rafaelleru.github.io/">Rafael Leyva Ruiz</a></h1>
+	<div class="site-description"><h2>Python backend developer. Vim nerd.</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/rafaelleru" title="Github"><i data-feather="github"></i></a><a href="https://www.linkedin.com/in/rafa-leyva-738228140/" title="Linkedin"><i data-feather="linkedin"></i></a><a href="https://stackoverflow.com/users/3795926/rafaelleru" title="Stack Overflow"><i data-feather="layers"></i></a><a href="https://twitter.com/rafaelleru" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/blog">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/wiki">Wiki</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Linux commands</h1>
+			<div class="meta">Posted at &mdash; Jun 15, 2021</div>
+		</div>
+
+		<div class="markdown">
+			<h2 id="get-the-real-size-of-a-folder">Get the real size of a folder</h2>
+<p><code>ls</code> returns 4K as size for folders. To get the total size for a folder and his content run:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">du -h --max-depth=0 &lt;directory&gt;
+</code></pre></div><p>If you want to obtain the size of the content inside the directory:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">du -h --max-depth=1 &lt;directory&gt;
+</code></pre></div>
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/commandline">commandline</a></li>
+								
+								<li><a href="/tags/wiki">wiki</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
