@@ -5,7 +5,7 @@ first get the container name with <code>docker ps</code>, copy the container nam
 I wrote this 2 <code>zsh</code> functions to avoid this.</p><h2 id=fdex>fdex</h2><p>This first function stands for &ldquo;fuzzy docker exec&rdquo;, it parses the output from <code>docker ps</code> with <code>awk</code>, gets the last
 column (where the container names appear), and then passes it to <code>fzf</code>. From <code>fzf</code> I can select a container where I
 want to enter, store it and finally run <code>docker exec</code> to that container.</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#719e07>function</span> fdex<span style=color:#719e07>()</span> <span style=color:#719e07>{</span>
-	<span style=color:#268bd2>CONTAINER</span><span style=color:#719e07>=</span><span style=color:#586e75>`</span>docker ps | rg -v CONTAINER | awk <span style=color:#2aa198>&#39;-F &#39;</span> <span style=color:#2aa198>&#39; {print $NF}&#39;</span> | fzf<span style=color:#586e75>`</span>
+	<span style=color:#268bd2>CONTAINER</span><span style=color:#719e07>=</span><span style=color:#586e75>`</span>docker ps | grep -v CONTAINER | awk <span style=color:#2aa198>&#39;-F &#39;</span> <span style=color:#2aa198>&#39; {print $NF}&#39;</span> | fzf<span style=color:#586e75>`</span>
 	<span style=color:#719e07>if</span> <span style=color:#719e07>[</span> ! -z <span style=color:#268bd2>$CONTAINER</span> <span style=color:#719e07>]</span>
 	<span style=color:#719e07>then</span>
 		docker <span style=color:#b58900>exec</span> -it <span style=color:#268bd2>$CONTAINER</span> bash
@@ -13,7 +13,7 @@ want to enter, store it and finally run <code>docker exec</code> to that contain
 <span style=color:#719e07>}</span>
 </code></pre></div><p>I run ripgrep with the reverse match option to filter out the first line which is not interesting because it
 does not contains any running docker information.</p><h2 id=fdlog>fdlog</h2><p>This one stands for &ldquo;fuzzy docker logs&rdquo; and basically it is the same function, running docker logs at the end.</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#719e07>function</span> fdlog<span style=color:#719e07>()</span> <span style=color:#719e07>{</span>
-	<span style=color:#268bd2>CONTAINER</span><span style=color:#719e07>=</span><span style=color:#586e75>`</span>docker ps | rg -v CONTAINER | awk <span style=color:#2aa198>&#39;-F &#39;</span> <span style=color:#2aa198>&#39; {print $NF}&#39;</span> | fzf<span style=color:#586e75>`</span>
+	<span style=color:#268bd2>CONTAINER</span><span style=color:#719e07>=</span><span style=color:#586e75>`</span>docker ps | grep -v CONTAINER | awk <span style=color:#2aa198>&#39;-F &#39;</span> <span style=color:#2aa198>&#39; {print $NF}&#39;</span> | fzf<span style=color:#586e75>`</span>
 	<span style=color:#719e07>if</span> <span style=color:#719e07>[</span> ! -z <span style=color:#268bd2>$CONTAINER</span> <span style=color:#719e07>]</span>
 	<span style=color:#719e07>then</span>
 		docker logs -f <span style=color:#268bd2>$CONTAINER</span>
