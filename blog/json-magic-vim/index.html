@@ -1,3 +1,94 @@
-<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>JSON magic with VIM - Rafael Leyva Ruiz</title><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:title" content="JSON magic with VIM"><meta property="og:description" content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff."><meta property="og:type" content="article"><meta property="og:url" content="https://rafaelleru.github.io/blog/json-magic-vim/"><meta property="article:published_time" content="2021-05-07T00:00:00+02:00"><meta property="article:modified_time" content="2021-05-07T00:00:00+02:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="JSON magic with VIM"><meta name=twitter:description content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff."><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css><script src=https://rafaelleru.github.io/js/feather.min.js></script><script src=https://rafaelleru.github.io/js/main.js></script></head><body><div class="container wrapper post"><div class=header><base href=https://rafaelleru.github.io/><h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1><div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social"><ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul></nav></div><nav class=nav><ul class=flat><li><a href=/>Home</a></li><li><a href=/blog>Posts</a></li><li><a href=/wiki>Wiki</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li></ul></nav></div><div class=post-header><h1 class=title>JSON magic with VIM</h1><div class=meta>Posted at &mdash; May 7, 2021</div></div><div class=markdown><h1 id=how-to-edit-compare-and-pretty-format-jsons-only-with-vim-and-maybe-some-other-cli-tool>How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool)</h1><p>I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called <a href=https://jsonformatter.curiousconcept.com/>JSON formatter and validator</a> (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using <a href=http://www.jsondiff.com/>JSON diff</a>. This consisted of 4 copy-paste operations all of them involving the mouse. This is slow and tedious and I knew it could be done with vim, but I was lazy about learning how to do it, but I finally did it. On the way, I also started playing around with vim tabs.</p><p><img src=./img/05-07-2021/demo.gif alt=Demo></p><h2 id=1-prettify-a-json-buffer-in-vim>1 Prettify a JSON buffer in VIM.</h2><p>There are hundreds of plugins that can do that in VIM with one simple command, but I was already using jq as my goto JSON tool in the CLI and then I found that you can pipe a whole VIM buffer into any program that you like, so I ended up with the following command: <code>:%!jq '.'</code>.
-The <code>%</code> symbol represents the content of the current buffer, <code>!</code> passes the previous text to an external program, in this case, <code>jq</code>. Finally jq knows how to prettify a JSON for us, the <code>'.'</code> final in the command can be omitted, it is only some standard stuff for the pretty JSON format.</p><h2 id=2-enabling-diff-for-2-splitted-windows-in-vim>2 Enabling diff for 2 splitted windows in vim</h2><p>I knew VIM comes with a diff mode. It can be enabled with the command <code>:windo diffthis</code>. <code>:windo</code> will execute the following command in all windows in a VIM tab. The command I am using is diffthis, which adds the current window to the list of &ldquo;diffs windows&rdquo;. You can also run <code>:diffthis</code> in multiple windows separately and it will give you the diff of those windows.</p><h2 id=3-opening-new-buffers-with-enew>3 Opening new buffers with <code>:enew</code></h2><p>If we have let&rsquo;s say a dataset with hundreds of JSONs inside it will be so tedious to check the diff for all of the entries, so I usually open a new unnamed buffer with <code>:enew</code> and paste inside the JSON that I want to check.</p><p>So to compare 2 JSONs side by side this is the whole command sequence you need to run:</p><ul><li><code>:tabnew</code> (I like to perform this kind of operations in a new tab)</li><li>Paste your first json from another buffer.</li><li><code>:vsplit</code></li><li><code>:enew</code></li><li><code>:windo %!jq</code> This will format both buffers simultaneously.</li><li><code>:windo diffthis</code></li><li><code>:tabcl</code> to close up the tab, once you have finished checking and editing your jsons.</li></ul><p>I will not use anymore tools like the 2 websites named at the begining of this article, I hope you neither, VIM
-can manage this and much more!</p><p><a href=https://github.com/rafaelleru/dotfiles/blob/master/config/nvim/init.vim>My vim config</a></p></div><div class=post-tags><nav class="nav tags"><ul class=flat><li><a href=/tags/vim>vim</a></li><li><a href=/tags/json>json</a></li></ul></nav></div></div><div class="footer wrapper"><nav class=nav><div><a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></nav></div><script>feather.replace()</script></body></html>
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge"><title>JSON magic with VIM - Rafael Leyva Ruiz</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:title" content="JSON magic with VIM">
+<meta property="og:description" content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafaelleru.github.io/blog/json-magic-vim/"><meta property="article:section" content="blog">
+<meta property="article:published_time" content="2021-05-07T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-05-07T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="JSON magic with VIM">
+<meta name=twitter:description content="How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff.">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet>
+<link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css>
+<link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css>
+<script src=https://rafaelleru.github.io/js/feather.min.js></script>
+<script src=https://rafaelleru.github.io/js/main.js></script>
+</head>
+<body>
+<div class="container wrapper post">
+<div class=header>
+<base href=https://rafaelleru.github.io/>
+<h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1>
+<div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social">
+<ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul>
+</nav>
+</div>
+<nav class=nav>
+<ul class=flat>
+<li>
+<a href=/>Home</a>
+</li>
+<li>
+<a href=/blog>Posts</a>
+</li>
+<li>
+<a href=/wiki>Wiki</a>
+</li>
+<li>
+<a href=/about>About</a>
+</li>
+<li>
+<a href=/tags>Tags</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class=post-header>
+<h1 class=title>JSON magic with VIM</h1>
+<div class=meta>Posted at &mdash; May 7, 2021</div>
+</div>
+<div class=markdown>
+<h1 id=how-to-edit-compare-and-pretty-format-jsons-only-with-vim-and-maybe-some-other-cli-tool>How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool)</h1>
+<p>I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called <a href=https://jsonformatter.curiousconcept.com/>JSON formatter and validator</a> (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using <a href=http://www.jsondiff.com/>JSON diff</a>. This consisted of 4 copy-paste operations all of them involving the mouse. This is slow and tedious and I knew it could be done with vim, but I was lazy about learning how to do it, but I finally did it. On the way, I also started playing around with vim tabs.</p>
+<p><img src=./img/05-07-2021/demo.gif alt=Demo></p>
+<h2 id=1-prettify-a-json-buffer-in-vim>1 Prettify a JSON buffer in VIM.</h2>
+<p>There are hundreds of plugins that can do that in VIM with one simple command, but I was already using jq as my goto JSON tool in the CLI and then I found that you can pipe a whole VIM buffer into any program that you like, so I ended up with the following command: <code>:%!jq '.'</code>.
+The <code>%</code> symbol represents the content of the current buffer, <code>!</code> passes the previous text to an external program, in this case, <code>jq</code>. Finally jq knows how to prettify a JSON for us, the <code>'.'</code> final in the command can be omitted, it is only some standard stuff for the pretty JSON format.</p>
+<h2 id=2-enabling-diff-for-2-splitted-windows-in-vim>2 Enabling diff for 2 splitted windows in vim</h2>
+<p>I knew VIM comes with a diff mode. It can be enabled with the command <code>:windo diffthis</code>. <code>:windo</code> will execute the following command in all windows in a VIM tab. The command I am using is diffthis, which adds the current window to the list of &ldquo;diffs windows&rdquo;. You can also run <code>:diffthis</code> in multiple windows separately and it will give you the diff of those windows.</p>
+<h2 id=3-opening-new-buffers-with-enew>3 Opening new buffers with <code>:enew</code></h2>
+<p>If we have let&rsquo;s say a dataset with hundreds of JSONs inside it will be so tedious to check the diff for all of the entries, so I usually open a new unnamed buffer with <code>:enew</code> and paste inside the JSON that I want to check.</p>
+<p>So to compare 2 JSONs side by side this is the whole command sequence you need to run:</p>
+<ul>
+<li><code>:tabnew</code> (I like to perform this kind of operations in a new tab)</li>
+<li>Paste your first json from another buffer.</li>
+<li><code>:vsplit</code></li>
+<li><code>:enew</code></li>
+<li><code>:windo %!jq</code> This will format both buffers simultaneously.</li>
+<li><code>:windo diffthis</code></li>
+<li><code>:tabcl</code> to close up the tab, once you have finished checking and editing your jsons.</li>
+</ul>
+<p>I will not use anymore tools like the 2 websites named at the begining of this article, I hope you neither, VIM
+can manage this and much more!</p>
+<p><a href=https://github.com/rafaelleru/dotfiles/blob/master/config/nvim/init.vim>My vim config</a></p>
+</div>
+<div class=post-tags>
+<nav class="nav tags">
+<ul class=flat>
+<li><a href=/tags/vim>vim</a></li>
+<li><a href=/tags/json>json</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="footer wrapper">
+<nav class=nav>
+<div> <a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div>
+</nav>
+</div>
+<script>feather.replace()</script>
+</body>
+</html>

@@ -1,17 +1,128 @@
-<!doctype html><html><head><meta name=generator content="Hugo 0.68.3"><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Rafael Leyva Ruiz - Python backend developer. Vim nerd.</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel=alternate type=application/rss+xml href=https://rafaelleru.github.io/index.xml title="Rafael Leyva Ruiz"><meta property="og:title" content="Rafael Leyva Ruiz"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://rafaelleru.github.io/"><meta property="og:updated_time" content="2022-02-04T00:00:00+01:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Rafael Leyva Ruiz"><meta name=twitter:description content><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css><link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css><script src=https://rafaelleru.github.io/js/feather.min.js></script><script src=https://rafaelleru.github.io/js/main.js></script></head><body><div class="container wrapper"><div class=header><base href=https://rafaelleru.github.io/><h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1><div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social"><ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul></nav></div><nav class=nav><ul class=flat><li><a href=/>Home</a></li><li><a href=/blog>Posts</a></li><li><a href=/wiki>Wiki</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li></ul></nav></div><div class="recent-posts section"><h2 class=section-header>Recent posts</h2><div class=posts><div class=post><div class=meta>Jan 26, 2022</div><a class=title href=/blog/ansibleii/>Managing dotfiles with Ansible (II)</a> &mdash;
-<span class=description>Apart from linking my config files, I needed to build and install a bunch of programs in each new machine I set up, so I was using some bash scripts. I decided to use ansible for this task because it fits perfectly my needs to do this.
+<!doctype html><html>
+<head>
+<meta name=generator content="Hugo 0.92.2">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge"><title>Rafael Leyva Ruiz - Python backend developer. Vim nerd. </title><meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://rafaelleru.github.io/index.xml title="Rafael Leyva Ruiz">
+<meta property="og:title" content="Rafael Leyva Ruiz">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafaelleru.github.io/">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Rafael Leyva Ruiz">
+<meta name=twitter:description content>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet>
+<link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css>
+<link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css>
+<script src=https://rafaelleru.github.io/js/feather.min.js></script>
+<script src=https://rafaelleru.github.io/js/main.js></script>
+</head>
+<body>
+<div class="container wrapper">
+<div class=header>
+<base href=https://rafaelleru.github.io/>
+<h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1>
+<div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social">
+<ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul>
+</nav>
+</div>
+<nav class=nav>
+<ul class=flat>
+<li>
+<a href=/>Home</a>
+</li>
+<li>
+<a href=/blog>Posts</a>
+</li>
+<li>
+<a href=/wiki>Wiki</a>
+</li>
+<li>
+<a href=/about>About</a>
+</li>
+<li>
+<a href=/tags>Tags</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="recent-posts section">
+<h2 class=section-header>
+Recent posts
+</h2>
+<div class=posts>
+<div class=post>
+<div class=meta>Sep 14, 2022</div>
+<a class=title href=/blog/custom-python-paths-nvim-lsp/>Use custom python paths on neovim lsp client</a> &mdash;
+<span class=description>
+Recently we started to use airflow in my current company, and I found an issue, LSP was not recognisin our custom plugins and DAGS inside of the airflow folder. This was caused because airflow is also a package that is installed in my virtualenv, so jedi was not able to discover definitions for example.
+That was caused because in my PYTHONPATH airflow was a package, so jedi was not looking into the airflow folder for more source code, causing LSP functionality to not work fine.&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>Jan 26, 2022</div>
+<a class=title href=/blog/ansibleii/>Managing dotfiles with Ansible (II)</a> &mdash;
+<span class=description>
+Apart from linking my config files, I needed to build and install a bunch of programs in each new machine I set up, so I was using some bash scripts. I decided to use ansible for this task because it fits perfectly my needs to do this.
 In this post, there are some examples of programs I am building manually with ansible, my reasons, and some thoughts.
-1. Building my neovim copy → The neovim role By default ubuntu repositories have a very old neovim version (the last time I installed neovim from ubuntu LSP was not available, but it was ready in the master branch of the project).&mldr;</span></div><div class=post><div class=meta>Nov 24, 2021</div><a class=title href=/blog/dotfiles-ansible-i/>Managing dotfiles with Ansible</a> &mdash;
-<span class=description>1. Why Ansible Ansible is a standard in the industry to automate deployments and provision virtual machines in the DevOps landscape. The main reason to use ansible to manage my dotfiles was to learn how to use it.
-Yes, Ansible seems to be overkill for this purpose. Dotbot seems to be a much smaller tool. Also, Greg Hurrel has created a config framework called fig, bothered for the size and bloat that Ansible represents.&mldr;</span></div><div class=post><div class=meta>Jun 26, 2021</div><a class=title href=/blog/quickfix-autocomands/>Toggle vim QuickFix list, the right way</a> &mdash;
-<span class=description>The Primeagean has a great video talking about all the great things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following code and paste it to my config.
-let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(global) if a:global if g:the_primeagen_qf_g == 1 let g:the_primeagen_qf_g = 0 cclose else let g:the_primeagen_qf_g = 1 copen end else if g:the_primeagen_qf_l == 1 let g:the_primeagen_qf_l = 0 lclose else let g:the_primeagen_qf_l = 1 lopen end endif endfun This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function.&mldr;</span></div><div class=post><div class=meta>May 7, 2021</div><a class=title href=/blog/json-magic-vim/>JSON magic with VIM</a> &mdash;
-<span class=description>How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff.&mldr;</span></div><div class=post><div class=meta>May 15, 2017</div><a class=title href=/blog/small-shell/>Small-shell con eshell</a> &mdash;
-<span class=description>Hace tiempo me encontré con una idea que me encanto, poder abrir rapidamente una ventana en emacs que contenga un emulador de terminal, para hacer tareas rapidas en ella. Lo ví en el archivo de configuración de @vterron, la función era small-shell y lucía tal que así:
-(defun small-shell () (interactive) (split-window-vertically) (other-window 1) (shrink-window (- (window-height) 12)) (ansi-term)) Pero para mis necesidades se quedaba un poco corta, así que la modifiqué del siguiente modo.&mldr;</span></div><div class=post><div class=meta>May 12, 2017</div><a class=title href=/blog/tilingwm/>Por qué todo el mundo debería probar un twm</a> &mdash;
-<span class=description>Varias veces me habían propuesto usar alguno de los varios window manager que hay disponibles para linux. Tengo que decir que al principio no le veía sentido, ¿Por que usar algo que en apariencia es mucho mas feo que un entorno de escritorio clásico y que ademas tienes mucha menos funcionalidad por defecto?
-En primer lugar, la funcionalidad como se entiende en un entorno de escritorio clásico como gnome o KDE no es aplicable a los twm.&mldr;</span></div><div class=post><div class=meta>Jan 1, 0001</div><a class=title href=/blog/to_read_list_emacs/>Mantener una lista de articulos para leer con org-mode</a> &mdash;
-<span class=description>Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
-Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea.&mldr;</span></div><div class=post><div class=meta>Jan 1, 0001</div><a class=title href=/blog/expand-region-emacs/>Seleccionando de una manera mas inteligente en emacs</a> &mdash;
-<span class=description>El otro día viendo la serie de videos de Myke Zamansky sobre emacs, habló sobre un paquete de emacs llamado expand-region. El funcionamiento es muy sencillo nos permite seleccionar con una sola pulsación en el atajo que definamos el texto entre dos delimitadores, ya sean parentesis, comillas, etc.
-Para usarlo lo primero es instalarlo, ejecutando en emacs M-x y escribiendo package-install RET expand-region RET donde RET es la tecla enter.&mldr;</span></div></div></div></div><div class="footer wrapper"><nav class=nav><div><a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></nav></div><script>feather.replace()</script></body></html>
+1. Building my neovim copy → The neovim role By default ubuntu repositories have a very old neovim version (the last time I installed neovim from ubuntu LSP was not available, but it was ready in the master branch of the project).&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>Jun 26, 2021</div>
+<a class=title href=/blog/quickfix-autocomands/>Toggle vim QuickFix list, the right way</a> &mdash;
+<span class=description>
+The Primeagean has a great video talking about all the great things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following code and paste it to my config.
+let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(global) if a:global if g:the_primeagen_qf_g == 1 let g:the_primeagen_qf_g = 0 cclose else let g:the_primeagen_qf_g = 1 copen end else if g:the_primeagen_qf_l == 1 let g:the_primeagen_qf_l = 0 lclose else let g:the_primeagen_qf_l = 1 lopen end endif endfun This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function.&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>May 7, 2021</div>
+<a class=title href=/blog/json-magic-vim/>JSON magic with VIM</a> &mdash;
+<span class=description>
+How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff.&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>May 15, 2017</div>
+<a class=title href=/blog/small-shell/>Small-shell con eshell</a> &mdash;
+<span class=description>
+Hace tiempo me encontré con una idea que me encanto, poder abrir rapidamente una ventana en emacs que contenga un emulador de terminal, para hacer tareas rapidas en ella. Lo ví en el archivo de configuración de @vterron, la función era small-shell y lucía tal que así:
+(defun small-shell () (interactive) (split-window-vertically) (other-window 1) (shrink-window (- (window-height) 12)) (ansi-term)) Pero para mis necesidades se quedaba un poco corta, así que la modifiqué del siguiente modo.&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>May 12, 2017</div>
+<a class=title href=/blog/tilingwm/>Por qué todo el mundo debería probar un twm</a> &mdash;
+<span class=description>
+Varias veces me habían propuesto usar alguno de los varios window manager que hay disponibles para linux. Tengo que decir que al principio no le veía sentido, ¿Por que usar algo que en apariencia es mucho mas feo que un entorno de escritorio clásico y que ademas tienes mucha menos funcionalidad por defecto?
+En primer lugar, la funcionalidad como se entiende en un entorno de escritorio clásico como gnome o KDE no es aplicable a los twm.&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>Jan 1, 0001</div>
+<a class=title href=/blog/to_read_list_emacs/>Mantener una lista de articulos para leer con org-mode</a> &mdash;
+<span class=description>
+Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
+Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea.&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>Jan 1, 0001</div>
+<a class=title href=/blog/expand-region-emacs/>Seleccionando de una manera mas inteligente en emacs</a> &mdash;
+<span class=description>
+El otro día viendo la serie de videos de Myke Zamansky sobre emacs, habló sobre un paquete de emacs llamado expand-region. El funcionamiento es muy sencillo nos permite seleccionar con una sola pulsación en el atajo que definamos el texto entre dos delimitadores, ya sean parentesis, comillas, etc.
+Para usarlo lo primero es instalarlo, ejecutando en emacs M-x y escribiendo package-install RET expand-region RET donde RET es la tecla enter.&mldr;
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="footer wrapper">
+<nav class=nav>
+<div> <a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div>
+</nav>
+</div>
+<script>feather.replace()</script>
+</body>
+</html>
