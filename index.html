@@ -53,7 +53,7 @@ Recent posts
 <div class=posts>
 <div class=post>
 <div class=meta>Sep 14, 2022</div>
-<a class=title href=/blog/custom-python-paths-nvim-lsp/>Use custom python paths on neovim lsp client</a> &mdash;
+<a class=title href=/blog/08-custom-python-paths-nvim-lsp/>08 - Use custom python paths on neovim lsp client</a> &mdash;
 <span class=description>
 Recently we started to use airflow in my current company, and I found an issue, LSP was not recognisin our custom plugins and DAGS inside of the airflow folder. This was caused because airflow is also a package that is installed in my virtualenv, so jedi was not able to discover definitions for example.
 That was caused because in my PYTHONPATH airflow was a package, so jedi was not looking into the airflow folder for more source code, causing LSP functionality to not work fine.&mldr;
@@ -61,7 +61,7 @@ That was caused because in my PYTHONPATH airflow was a package, so jedi was not 
 </div>
 <div class=post>
 <div class=meta>Jan 26, 2022</div>
-<a class=title href=/blog/ansibleii/>Managing dotfiles with Ansible (II)</a> &mdash;
+<a class=title href=/blog/07-ansibleii/>07 - Managing dotfiles with Ansible (II)</a> &mdash;
 <span class=description>
 Apart from linking my config files, I needed to build and install a bunch of programs in each new machine I set up, so I was using some bash scripts. I decided to use ansible for this task because it fits perfectly my needs to do this.
 In this post, there are some examples of programs I am building manually with ansible, my reasons, and some thoughts.
@@ -70,7 +70,7 @@ In this post, there are some examples of programs I am building manually with an
 </div>
 <div class=post>
 <div class=meta>Jun 26, 2021</div>
-<a class=title href=/blog/quickfix-autocomands/>Toggle vim QuickFix list, the right way</a> &mdash;
+<a class=title href=/blog/06-quickfix-autocomands/>06 - Toggle vim QuickFix list, the right way</a> &mdash;
 <span class=description>
 The Primeagean has a great video talking about all the great things you can get by using QuickFix lists and local QuickFix lists. After watching it I quickly grab the following code and paste it to my config.
 let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(global) if a:global if g:the_primeagen_qf_g == 1 let g:the_primeagen_qf_g = 0 cclose else let g:the_primeagen_qf_g = 1 copen end else if g:the_primeagen_qf_l == 1 let g:the_primeagen_qf_l = 0 lclose else let g:the_primeagen_qf_l = 1 lopen end endif endfun This code will allow us to toggle both the LocalFix list and the QuickFix list by calling this function.&mldr;
@@ -78,14 +78,14 @@ let g:the_primeagen_qf_l = 0 let g:the_primeagen_qf_g = 0 fun! ToggleQFList(glob
 </div>
 <div class=post>
 <div class=meta>May 7, 2021</div>
-<a class=title href=/blog/json-magic-vim/>JSON magic with VIM</a> &mdash;
+<a class=title href=/blog/05-json-magic-vim/>05 - JSON magic with VIM</a> &mdash;
 <span class=description>
 How to edit, compare, and pretty format JSONs only with VIM (and maybe some other CLI tool) I have been comparing multiple versions of the same JSON file in my daily workflow, having to edit it and converting it from one line to pretty and vice-versa. For that purpose, I was copying the JSON to a website called JSON formatter and validator (There are hundreds of sites with the same objective around in the internet) and then comparing it to his also prettified version using JSON diff.&mldr;
 </span>
 </div>
 <div class=post>
 <div class=meta>May 15, 2017</div>
-<a class=title href=/blog/small-shell/>Small-shell con eshell</a> &mdash;
+<a class=title href=/blog/04-small-shell/>04 - Small-shell con eshell</a> &mdash;
 <span class=description>
 Hace tiempo me encontré con una idea que me encanto, poder abrir rapidamente una ventana en emacs que contenga un emulador de terminal, para hacer tareas rapidas en ella. Lo ví en el archivo de configuración de @vterron, la función era small-shell y lucía tal que así:
 (defun small-shell () (interactive) (split-window-vertically) (other-window 1) (shrink-window (- (window-height) 12)) (ansi-term)) Pero para mis necesidades se quedaba un poco corta, así que la modifiqué del siguiente modo.&mldr;
@@ -93,23 +93,23 @@ Hace tiempo me encontré con una idea que me encanto, poder abrir rapidamente un
 </div>
 <div class=post>
 <div class=meta>May 12, 2017</div>
-<a class=title href=/blog/tilingwm/>Por qué todo el mundo debería probar un twm</a> &mdash;
+<a class=title href=/blog/03-tilingwm/>03 - Por qué todo el mundo debería probar un twm</a> &mdash;
 <span class=description>
 Varias veces me habían propuesto usar alguno de los varios window manager que hay disponibles para linux. Tengo que decir que al principio no le veía sentido, ¿Por que usar algo que en apariencia es mucho mas feo que un entorno de escritorio clásico y que ademas tienes mucha menos funcionalidad por defecto?
 En primer lugar, la funcionalidad como se entiende en un entorno de escritorio clásico como gnome o KDE no es aplicable a los twm.&mldr;
 </span>
 </div>
 <div class=post>
-<div class=meta>Jan 1, 0001</div>
-<a class=title href=/blog/to_read_list_emacs/>Mantener una lista de articulos para leer con org-mode</a> &mdash;
+<div class=meta>Jan 20, 2016</div>
+<a class=title href=/blog/02-to_read_list_emacs/>02 - Mantener una lista de articulos para leer con org-mode</a> &mdash;
 <span class=description>
 Orgmode es le leche, no creo que pueda encontrar una frase mejor para empezar este post. Desde hace tiempo lo uso para mantener mi lista de TODOs, gestionar mi calendario, etc.
 Aparte de lo comentado anteriormente mentengo tambien una lista de enlaces y articulos que leer, la almaceno en un archivo llamado to-read.org y hasta hace poco para abrirlo tenía que abrir emacs, abrir el archivo y empezar a navegar por los enlaces, pero hace unos días se me ocurrió una idea.&mldr;
 </span>
 </div>
 <div class=post>
-<div class=meta>Jan 1, 0001</div>
-<a class=title href=/blog/expand-region-emacs/>Seleccionando de una manera mas inteligente en emacs</a> &mdash;
+<div class=meta>Jan 1, 2015</div>
+<a class=title href=/blog/01-expand-region-emacs/>01 - Seleccionando de una manera mas inteligente en emacs</a> &mdash;
 <span class=description>
 El otro día viendo la serie de videos de Myke Zamansky sobre emacs, habló sobre un paquete de emacs llamado expand-region. El funcionamiento es muy sencillo nos permite seleccionar con una sola pulsación en el atajo que definamos el texto entre dos delimitadores, ya sean parentesis, comillas, etc.
 Para usarlo lo primero es instalarlo, ejecutando en emacs M-x y escribiendo package-install RET expand-region RET donde RET es la tecla enter.&mldr;
