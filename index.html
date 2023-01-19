@@ -52,8 +52,15 @@ Recent posts
 </h2>
 <div class=posts>
 <div class=post>
+<div class=meta>Jan 13, 2023</div>
+<a class=title href=/blog/11-sync-iphone-photos/>10 - Creating an incremental copy of iphone photos with rsync</a> &mdash;
+<span class=description>
+rsync is a great tool to manage backups, create incremental copies of entire directories. etc. I remember the first time that Victor Terron talked about it in his talk to the students of the first course of computer science degree in the UGR. On the other side cloud storage services are expensive.&mldr;
+</span>
+</div>
+<div class=post>
 <div class=meta>Sep 14, 2022</div>
-<a class=title href=/blog/08-custom-python-paths-nvim-lsp/>08 - Use custom python paths on neovim lsp client</a> &mdash;
+<a class=title href=/blog/09-custom-python-paths-nvim-lsp/>09 - Use custom python paths on neovim lsp client</a> &mdash;
 <span class=description>
 Recently we started to use airflow in my current company, and I found an issue, LSP was not recognisin our custom plugins and DAGS inside of the airflow folder. This was caused because airflow is also a package that is installed in my virtualenv, so jedi was not able to discover definitions for example.
 That was caused because in my PYTHONPATH airflow was a package, so jedi was not looking into the airflow folder for more source code, causing LSP functionality to not work fine.&mldr;
@@ -61,11 +68,19 @@ That was caused because in my PYTHONPATH airflow was a package, so jedi was not 
 </div>
 <div class=post>
 <div class=meta>Jan 26, 2022</div>
-<a class=title href=/blog/07-ansibleii/>07 - Managing dotfiles with Ansible (II)</a> &mdash;
+<a class=title href=/blog/08-ansibleii/>08 - Managing dotfiles with Ansible (II)</a> &mdash;
 <span class=description>
 Apart from linking my config files, I needed to build and install a bunch of programs in each new machine I set up, so I was using some bash scripts. I decided to use ansible for this task because it fits perfectly my needs to do this.
 In this post, there are some examples of programs I am building manually with ansible, my reasons, and some thoughts.
 1. Building my neovim copy → The neovim role By default ubuntu repositories have a very old neovim version (the last time I installed neovim from ubuntu LSP was not available, but it was ready in the master branch of the project).&mldr;
+</span>
+</div>
+<div class=post>
+<div class=meta>Nov 24, 2021</div>
+<a class=title href=/blog/07-ansible-dotfiles-i/>07 - Managing dotfiles with Ansible</a> &mdash;
+<span class=description>
+1. Why Ansible Ansible is a standard in the industry to automate deployments and provision virtual machines in the DevOps landscape. The main reason to use ansible to manage my dotfiles was to learn how to use it.
+Yes, Ansible seems to be overkill for this purpose. Dotbot seems to be a much smaller tool. Also, Greg Hurrel has created a config framework called fig, bothered for the size and bloat that Ansible represents.&mldr;
 </span>
 </div>
 <div class=post>

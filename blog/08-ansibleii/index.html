@@ -1,0 +1,158 @@
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge"><title>08 - Managing dotfiles with Ansible (II) - Rafael Leyva Ruiz</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:title" content="08 - Managing dotfiles with Ansible (II)">
+<meta property="og:description" content="Apart from linking my config files, I needed to build and install a bunch of programs in each new machine I set up, so I was using some bash scripts. I decided to use ansible for this task because it fits perfectly my needs to do this.
+In this post, there are some examples of programs I am building manually with ansible, my reasons, and some thoughts.
+1. Building my neovim copy → The neovim role By default ubuntu repositories have a very old neovim version (the last time I installed neovim from ubuntu LSP was not available, but it was ready in the master branch of the project).">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafaelleru.github.io/blog/08-ansibleii/"><meta property="article:section" content="blog">
+<meta property="article:published_time" content="2022-01-26T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-01-26T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="08 - Managing dotfiles with Ansible (II)">
+<meta name=twitter:description content="Apart from linking my config files, I needed to build and install a bunch of programs in each new machine I set up, so I was using some bash scripts. I decided to use ansible for this task because it fits perfectly my needs to do this.
+In this post, there are some examples of programs I am building manually with ansible, my reasons, and some thoughts.
+1. Building my neovim copy → The neovim role By default ubuntu repositories have a very old neovim version (the last time I installed neovim from ubuntu LSP was not available, but it was ready in the master branch of the project).">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet>
+<link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/normalize.css>
+<link rel=stylesheet type=text/css media=screen href=https://rafaelleru.github.io/css/main.css>
+<script src=https://rafaelleru.github.io/js/feather.min.js></script>
+<script src=https://rafaelleru.github.io/js/main.js></script>
+</head>
+<body>
+<div class="container wrapper post">
+<div class=header>
+<base href=https://rafaelleru.github.io/>
+<h1 class=site-title><a href=https://rafaelleru.github.io/>Rafael Leyva Ruiz</a></h1>
+<div class=site-description><h2>Python backend developer. Vim nerd.</h2><nav class="nav social">
+<ul class=flat><a href=https://github.com/rafaelleru title=Github><i data-feather=github></i></a><a href=https://www.linkedin.com/in/rafa-leyva-738228140/ title=Linkedin><i data-feather=linkedin></i></a><a href=https://stackoverflow.com/users/3795926/rafaelleru title="Stack Overflow"><i data-feather=layers></i></a><a href=https://twitter.com/rafaelleru title=Twitter><i data-feather=twitter></i></a></ul>
+</nav>
+</div>
+<nav class=nav>
+<ul class=flat>
+<li>
+<a href=/>Home</a>
+</li>
+<li>
+<a href=/blog>Posts</a>
+</li>
+<li>
+<a href=/wiki>Wiki</a>
+</li>
+<li>
+<a href=/about>About</a>
+</li>
+<li>
+<a href=/tags>Tags</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class=post-header>
+<h1 class=title>08 - Managing dotfiles with Ansible (II)</h1>
+<div class=meta>Posted at &mdash; Jan 26, 2022</div>
+</div>
+<div class=markdown>
+<p>Apart from linking my config files, I needed to build and install a bunch of programs in each new machine I set up,
+so I was using some bash scripts. I decided to use ansible for this task because it fits perfectly my needs to do this.</p>
+<p>In this post, there are some examples of programs I am building manually with ansible, my reasons, and some thoughts.</p>
+<h2 id=1-building-my-neovim-copy--the-neovim-role>1. Building my neovim copy → The neovim role</h2>
+<p>By default ubuntu repositories have a very old neovim version (the last time I installed neovim from ubuntu LSP was not available, but it was ready in the master branch of the project). This and my tendency to use always the newer version to try new things asap ended up with a local build of the master branch of the project in all my machines, so this was the first program manual installation that I automated with ansible.</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#268bd2>name</span>: get neovim repository
+  <span style=color:#268bd2>git</span>:
+    <span style=color:#268bd2>force</span>: <span style=color:#cb4b16>yes</span>
+    <span style=color:#268bd2>repo</span>: https://github.com/neovim/neovim
+    <span style=color:#268bd2>dest</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/neovim&#34;</span>
+
+- <span style=color:#268bd2>name</span>: make neovim
+  <span style=color:#268bd2>make</span>:
+    <span style=color:#268bd2>chdir</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/neovim&#34;</span>
+    <span style=color:#268bd2>target</span>: install
+</code></pre></div><p>These 2 tasks simply clone the neovim repository using the <code>git</code> plugin from ansible and build it using the <code>make</code> plugin.</p>
+<p>Currently this role 2 problems, I am getting an error from git if the repository exists locally due to the release version and I am not able to build neovim using 4 jobs, I tried both with the <code>jobs</code> parameter of the plugin and using the <code>params</code> parameter, but none of them worked fine. I will revisit this in the future, it is a bit annoying.</p>
+<h2 id=2-building-my-dwm-copy--the-dwm-role>2. Building my dwm copy → The dwm role</h2>
+<p>To build <code>dwm</code> first I needed to link my config file to my dwm patched code, so first I need to clone my dwm repository, as I did for neovim, from Github:</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#268bd2>name</span>: clone my dwm copy
+    <span style=color:#268bd2>git</span>:
+      <span style=color:#268bd2>repo</span>: https://github.com/rafaelleru/dwm.git
+      <span style=color:#268bd2>dest</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/dwm&#34;</span>
+</code></pre></div><p>Then after setting up the dotfiles which include the <code>config.h</code> file for dwm as I explained in part I of this post, I can build and install <code>dwm</code> using the make plugin with this code:</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#268bd2>name</span>: build my dwm copy
+  <span style=color:#268bd2>make</span>:
+    <span style=color:#268bd2>chdir</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/dwm&#34;</span>
+    <span style=color:#268bd2>target</span>: install
+</code></pre></div><h2 id=3-installing-rust-cargo-and-building-my-alacrity-copy>3. Installing rust, cargo, and building my alacrity copy</h2>
+<p>My terminal emulator has been alacrity for more than 3 years now, it is written in rust and claims to be the fastest terminal in the world, I don&rsquo;t use it because of any of that. It is simple, supports well utf-8 fonts, and can be configured with a single yaml file that I can version.</p>
+<p>In ubuntu, you can install alacrity via snap or build your own but alacrity changes configuration options between versions that end up with some warnings so I want to install the same version of alacrity in all my machines. To do that I decided to manually install rust, and build my alacrity copy with ansible. It is done in 6 tasks:</p>
+<p>The first tasks are used to get Linux’s <code>[rustup-init.sh](http://rustup-init.sh)</code> script, give it permissions to run, and run it to install rust locally</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#268bd2>name</span>: get rustup script
+  <span style=color:#268bd2>tags</span>: alacritty
+  <span style=color:#268bd2>get_url</span>:
+    <span style=color:#268bd2>url</span>: https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init
+    <span style=color:#268bd2>dest</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/rustup-init.sh&#34;</span>
+
+- <span style=color:#268bd2>name</span>: give rustup permissions to run
+  <span style=color:#268bd2>tags</span>: alacritty
+  <span style=color:#268bd2>shell</span>: <span style=color:#2aa198>&#34;chmod 755 {{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/rustup-init.sh
+</span><span style=color:#2aa198>
+</span><span style=color:#2aa198># TODO: Instalar rust
+</span><span style=color:#2aa198>- name: run rustup.sh script
+</span><span style=color:#2aa198>  tags: alacritty
+</span><span style=color:#2aa198>  shell: &#34;</span>{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/rustup-init.sh -y&#34;
+</code></pre></div><p>Then I download alacrity code from Github</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#268bd2>name</span>: clone alacritty source code
+  <span style=color:#268bd2>tags</span>: alacritty
+  <span style=color:#268bd2>git</span>:
+    <span style=color:#268bd2>repo</span>: https://github.com/alacritty/alacritty.git
+    <span style=color:#268bd2>dest</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/alacritty&#34;</span>
+</code></pre></div><p>This is the most troublesome step, I wanted to do it in multiple steps but every single task in Ansible is run independently, so they don’t inherit environment variables from previous steps for example you can not run source in 1 step and use a variable from that source in the next task, so I ended up chaining 4 commands in a single ansible task to build alacrity using my local cargo:</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#268bd2>name</span>: enable cargo
+  <span style=color:#268bd2>tags</span>: alacritty
+  <span style=color:#268bd2>shell</span>:
+    <span style=color:#268bd2>chdir</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/alacritty&#34;</span>
+    <span style=color:#268bd2>cmd</span>: <span style=color:#2aa198>&#34;source {{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/.cargo/env
+</span><span style=color:#2aa198>       &amp;&amp; rustup override set stable
+</span><span style=color:#2aa198>       &amp;&amp; rustup update stable
+</span><span style=color:#2aa198>       &amp;&amp; cargo build --release&#34;</span>
+    <span style=color:#268bd2>executable</span>: /bin/yaml
+</code></pre></div><p>Finally, since I am root in all my machines I copy alacrity to the <code>/usr/bin</code> directory to have it available for all the users.</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>- <span style=color:#268bd2>name</span>: place alacritty in /usr/bin directory
+  <span style=color:#268bd2>tags</span>: alacritty
+  <span style=color:#268bd2>file</span>:
+    <span style=color:#268bd2>src</span>: <span style=color:#2aa198>&#34;{{ lookup(&#39;env&#39;, &#39;HOME&#39;) }}/bin/alacritty/target/release/alacritty&#34;</span>
+    <span style=color:#268bd2>dest</span>: <span style=color:#2aa198>&#34;/usr/bin/alacritty&#34;</span>
+    <span style=color:#268bd2>state</span>: link
+    <span style=color:#268bd2>force</span>: <span style=color:#cb4b16>yes</span>
+</code></pre></div><h2 id=4-other-packages-manually-installed-with-ansible>4. Other packages manually installed with ansible.</h2>
+<p>There are more packages that I am installing manually with Ansible such as <code>fzf</code> or <code>clipnotify</code>, you can find more exploring the ansible directory in my dotfiles repository.
+It is amazing how easy is to automate all these tasks, you can avoid custom shell scripts that, at least for me, most of the time failed.</p>
+<h2 id=5-in-the-future>5. In the future.</h2>
+<p>I want to fix the problems of cloning neovim, also even it is working I don’t like the way I am building alacrity in one simple task and I am sure ansible provides mechanisms to it more elegantly and safely.
+Last but not least I want to link a couple of videos from youtube that helped me to start with Ansible, and give me ideas to use it in the future:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=goclfp6a2IQ">Ansible 101 - Episode 1 - Introduction to Ansible</a> by <a href=https://twitter.com/geerlingguy>@geerlingguy</a></li>
+<li><a href="https://www.youtube.com/watch?v=Z7p9-m4cimg">Writing Your First Ansible Playbook! | IaC Deep Dive Pt. 1</a> by <a href=https://twitter.com/notthebeeee>@nothebee</a></li>
+</ul>
+<p>For sure I will continue using Ansible to automate everything I can in my future machines, for example, I am building a homelab and I am sure ansible will be so useful for that.</p>
+</div>
+<div class=post-tags>
+<nav class="nav tags">
+<ul class=flat>
+<li><a href=/tags/dotfiles>dotfiles</a></li>
+<li><a href=/tags/linux>linux</a></li>
+<li><a href=/tags/automation>automation</a></li>
+<li><a href=/tags/ansible>ansible</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="footer wrapper">
+<nav class=nav>
+<div> <a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div>
+</nav>
+</div>
+<script>feather.replace()</script>
+</body>
+</html>
