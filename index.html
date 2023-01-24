@@ -55,7 +55,7 @@ Recent posts
 <div class=meta>Sep 14, 2022</div>
 <a class=title href=/blog/09-custom-python-paths-nvim-lsp/>09 - Use custom python paths on neovim lsp client</a> &mdash;
 <span class=description>
-Recently we started to use airflow in my current company, and I found an issue, LSP was not recognisin our custom plugins and DAGS inside of the airflow folder. This was caused because airflow is also a package that is installed in my virtualenv, so jedi was not able to discover definitions for example.
+Recently we started to use airflow in my current company, and I found an issue, LSP was not recognising our custom plugins and DAGS inside of the airflow folder. This was caused because airflow is also a package that is installed in my virtualenv, so jedi was not able to discover definitions for example.
 That was caused because in my PYTHONPATH airflow was a package, so jedi was not looking into the airflow folder for more source code, causing LSP functionality to not work fine.&mldr;
 </span>
 </div>
